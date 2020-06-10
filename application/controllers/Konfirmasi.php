@@ -12,7 +12,7 @@ class Konfirmasi extends MY_Controller {
 		$data = array(
 			'konfirmasi' => $this->m_konfirmasi->get_konfirmasi(),
 		);
-		$this->render_page('v_konfirmasiPembayaran',$data);
+		$this->render_page('v_konfirmasi',$data);
 	}
 
 }
