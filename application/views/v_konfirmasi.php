@@ -74,6 +74,115 @@
    </section>
  </div>
 
+
+ <div class="modal fade" id="modal-default">
+   <div class="modal-dialog">
+     <div class="modal-content">
+       <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span></button>
+         <h4 class="modal-title">Tambah Data Pelanggan</h4>
+       </div>
+       <div class="modal-body">
+         <form role="form" action="<?= base_url() . 'pelanggan/action_tambah' ?>" method="POST">
+           <div class="box-body">
+             <div class="form-group">
+               <label for="exampleInputEmail1">ID Pelanggan</label>
+               <input type="text" class="form-control" id="exampleInputEmail1" name="no_pelanggan" placeholder="Id pelanggan">
+             </div>
+             <div class="form-group">
+               <label for="exampleInputPassword1">No Rekening</label>
+               <input type="text" class="form-control" id="exampleInputPassword1" name="no_rekening" placeholder="No Rekening">
+             </div>
+             <div class="form-group">
+               <label for="exampleInputPassword1">Nama Lengkap</label>
+               <input type="text" class="form-control" id="exampleInputPassword1" name="nama" placeholder="Nama Lengkap">
+             </div>
+             <div class="form-group">
+               <label for="exampleInputPassword1">Tempat Lahir</label>
+               <input type="text" class="form-control" id="exampleInputPassword1" name="tempat" placeholder="Tempat lahir">
+             </div>
+             <div class="form-group">
+               <label for="exampleInputPassword1">Tanggal Lahir</label>
+               <input type="text" class="form-control datepicker" name="tgl_lahir" placeholder="Tempat lahir">
+             </div>
+             <div class="form-group">
+               <label for="exampleInputPassword1">Alamat</label>
+               <textarea type="text" class="form-control" id="exampleInputPassword1" name="alamat" placeholder="Alamat"></textarea>
+             </div>
+             <div class="form-group">
+               <label for="exampleInputPassword1">Pekerjaan</label>
+               <input type="text" class="form-control" id="exampleInputPassword1" name="pekerjaan" placeholder="Pekerjaan">
+             </div>
+           </div>
+
+           <div class="modal-footer">
+             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+             <button type="submit" class="btn btn-primary">Simpan</button>
+           </div>
+         </form>
+       </div>
+     </div>
+     <!-- /.modal-content -->
+   </div>
+   <!-- /.modal-dialog -->
+ </div>
+
+
+ <div class="modal fade" id="modal-edit">
+   <div class="modal-dialog">
+     <div class="modal-content">
+       <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span></button>
+         <h4 class="modal-title">Edit Data Pelanggan</h4>
+       </div>
+       <div class="modal-body">
+         <form role="form" action="<?= base_url() . 'pelanggan/action_edit' ?>" method="POST">
+           <div class="box-body">
+             <div class="form-group">
+               <label for="exampleInputEmail1">ID Pelanggan</label>
+               <input type="text" class="form-control" id="nopelanggan" name="no_pelanggan" placeholder="Id pelanggan">
+             </div>
+             <div class="form-group">
+               <label for="exampleInputPassword1">No Rekening</label>
+               <input type="text" class="form-control" id="norekening" name="no_rekening" placeholder="No Rekening">
+             </div>
+             <div class="form-group">
+               <label for="exampleInputPassword1">Nama Lengkap</label>
+               <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Lengkap">
+             </div>
+             <div class="form-group">
+               <label for="exampleInputPassword1">Tempat Lahir</label>
+               <input type="text" class="form-control" id="tempat" name="tempat" placeholder="Tempat lahir">
+             </div>
+             <div class="form-group">
+               <label for="exampleInputPassword1">Tanggal Lahir</label>
+               <input type="text" class="form-control datepicker" id="tgl_lahir" name="tgl_lahir" placeholder="Tempat lahir">
+             </div>
+             <div class="form-group">
+               <label for="exampleInputPassword1">Alamat</label>
+               <textarea type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat"></textarea>
+             </div>
+             <div class="form-group">
+               <label for="exampleInputPassword1">Pekerjaan</label>
+               <input type="text" class="form-control" id="pekerjaan" name="pekerjaan" placeholder="Pekerjaan">
+             </div>     
+           </div>
+           <div class="modal-footer">
+             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+             <button type="submit" class="btn btn-primary">Simpan</button>
+           </div>
+         </form>
+       </div>
+     </div>
+     <!-- /.modal-content -->
+   </div>
+   <!-- /.modal-dialog -->
+ </div>
+
+
+
  <script type="text/javascript">
    function select_data($nama, $id_pelanggan, $no_rekening, $nominal, $tanggal_transaksi, $bukti_tf, $bank, $status) {
      $("#nama").val($nama);
