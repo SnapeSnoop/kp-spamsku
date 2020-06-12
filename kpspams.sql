@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2020 at 06:57 PM
+-- Generation Time: Jun 12, 2020 at 04:30 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
@@ -55,7 +55,7 @@ INSERT INTO `menu` (`id`, `judul_menu`, `link`, `icon`, `is_main_menu`) VALUES
 (12, 'Laporan Pembayaran', 'pembayaran/cetakall', 'fa fa-file-pdf-o', 9),
 (14, 'Pengaduan', 'pengaduan', 'fa fa-gavel', 0),
 (16, 'Pembayaran Manual', 'pembayaran', 'fa fa-credit-card', 7),
-(18, 'Konfirmasi Pembayaran', 'pembayaran/konfirmasiPembayaran', 'fa fa-check', 7);
+(19, 'Konfirmasi Pembayaran', 'konfirmasi', 'fa fa-check', 7);
 
 -- --------------------------------------------------------
 
@@ -101,6 +101,24 @@ CREATE TABLE `tb_golongan` (
 INSERT INTO `tb_golongan` (`idgolongan`, `golongan`, `gol1`, `gol2`, `gol3`, `biaya_air`, `biaya_adm`) VALUES
 (1, 'RMT', '500', '650', '850', '1000', '5000'),
 (2, 'SOS', '300', '300', '500', '500', '5000');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_konfirmasi`
+--
+
+CREATE TABLE `tb_konfirmasi` (
+  `id` int(20) NOT NULL,
+  `nama` varchar(40) NOT NULL,
+  `id_pelanggan` varchar(40) NOT NULL,
+  `no_rekening` varchar(40) NOT NULL,
+  `nominal` varchar(40) NOT NULL,
+  `tanggal_transaksi` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `bukti_tf` mediumblob NOT NULL,
+  `bank` varchar(10) NOT NULL,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -237,7 +255,9 @@ INSERT INTO `tb_tarif` (`id_tarif`, `no_pelanggan`, `idgolongan`, `bulan_rekenin
 (12, 'P001', 1, 'April 2020', '60', '120', '', '', '', '60', '', '605000', 1, '2020-04-09', 'Lunas'),
 (16, 'P002', 2, 'Mei 2020', '60', '70', '', '', '', '10', '', '10000', 1, '2020-04-09', 'Belum bayar'),
 (17, 'P001', 1, '2020-05-09', '70', '90', '', '', '', '20', '', '25000', 1, '2020-05-09', 'Belum bayar'),
-(18, 'P001', 1, '2020-05-10', '70', '100', '', '', '', '30', '', '35000', 1, '2020-05-09', 'Belum bayar');
+(18, 'P001', 1, '2020-05-10', '70', '100', '', '', '', '30', '', '35000', 1, '2020-05-09', 'Belum bayar'),
+(19, 'P001', 1, '2020-06-11', '70', '150', '', '', '', '80', '', '85000', 1, '2020-06-08', 'Belum bayar'),
+(20, 'P001', 1, '2020-06-10', '150', '200', '', '', '', '50', '', '55000', 1, '2020-06-08', 'Belum bayar');
 
 -- --------------------------------------------------------
 
@@ -284,6 +304,12 @@ ALTER TABLE `tb_golongan`
   ADD PRIMARY KEY (`idgolongan`);
 
 --
+-- Indexes for table `tb_konfirmasi`
+--
+ALTER TABLE `tb_konfirmasi`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tb_pelanggan`
 --
 ALTER TABLE `tb_pelanggan`
@@ -327,7 +353,7 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `tb_admin`
@@ -340,6 +366,12 @@ ALTER TABLE `tb_admin`
 --
 ALTER TABLE `tb_golongan`
   MODIFY `idgolongan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `tb_konfirmasi`
+--
+ALTER TABLE `tb_konfirmasi`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_pengaduan`
@@ -357,7 +389,7 @@ ALTER TABLE `tb_petugas`
 -- AUTO_INCREMENT for table `tb_tarif`
 --
 ALTER TABLE `tb_tarif`
-  MODIFY `id_tarif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_tarif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
