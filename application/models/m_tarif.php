@@ -32,7 +32,19 @@ class M_tarif extends CI_Model {
 						->join('tb_golongan','tb_tarif.idgolongan=tb_golongan.idgolongan')
 						->get();
 		return $data->result();
-	}
+    }
+    
+    function get_tarif_transaction($id_tarif){
+
+        $data = $this->db->select('*')
+						->from('tb_tarif')
+						->join('tb_pelanggan','tb_tarif.no_pelanggan=tb_pelanggan.no_pelanggan')
+                        ->join('tb_golongan','tb_tarif.idgolongan=tb_golongan.idgolongan')
+                        ->where('id_tarif',$id_tarif)
+						->get();
+		return $data->result();
+
+    }
 
 	function tambah($data){
 		$this->db->insert('tb_tarif',$data);
