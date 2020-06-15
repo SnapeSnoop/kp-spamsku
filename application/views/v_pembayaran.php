@@ -1,7 +1,7 @@
 <?php
 $tanggal = date('Y-m-d');
 $tgl = date('ymmd');
-$rand = rand(10, 100) +1;
+$rand = rand(10, 100) + 1;
 $kd = 'PA';
 $kode = $kd . $tgl . $rand;
 ?>
@@ -28,14 +28,24 @@ $kode = $kd . $tgl . $rand;
       <form class="form-horizontal" method="POST" action="<?= base_url() . 'pembayaran/action_tambah' ?>">
         <div class="box-body">
           <div class="form-group">
-            <label for="inputEmail3" class="col-sm-2 control-label">ID Tarif</label>
-            <div class="col-sm-4">
-              <!-- <input type="hidden" class="form-control" name="id_tarif"> -->
-              <select id="id_tarif" class="form-control" name="id_tarif">
-                <?php foreach ($tarif as $tarif) : ?>
-                  <option value="<?= $tarif->id_tarif ?>">Kode Pemakaian <?= $tarif->id_tarif ?> - <?= $tarif->nama_lengkap ?>(<?= $tarif->no_pelanggan ?>)</option>
-                <?php endforeach; ?>
-              </select>
+            <div class="row">
+              <label for="inputEmail3" class="col-sm-2 control-label">ID Tarif</label>
+              <div class="col-sm-4">
+                <!-- <input type="hidden" class="form-control" name="id_tarif"> -->
+                <select id="id_tarif" class="form-control" name="id_tarif">
+                  <?php foreach ($tarif as $tarif) : ?>
+                    <option value="<?= $tarif->id_tarif ?>">Kode Pemakaian <?= $tarif->id_tarif ?> - <?= $tarif->nama_lengkap ?>(<?= $tarif->no_pelanggan ?>)</option>
+                  <?php endforeach; ?>
+                </select>
+              </div>
+              <div class="col-sm-6">
+                <label for="inputEmail3" class="col-sm-4 control-label">Harga per-meter</label>
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" name="hgol1" readonly>
+                  <input type="text" class="form-control" name="hgol2" readonly>
+                  <input type="text" class="form-control" name="hgol3" readonly>
+                </div>
+              </div>
             </div>
           </div>
           <div class="form-group">
@@ -104,6 +114,33 @@ $kode = $kd . $tgl . $rand;
                 </div>
               </div>
               <div class="form-group">
+                  <label class="col-sm-4 control-label">0 - 10</label>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" name="gol1" readonly>
+                  </div>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" name="sum_gol1" readonly>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-4 control-label">11 - 50</label>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" name="gol2" readonly>
+                  </div>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" name="sum_gol2" readonly>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-4 control-label">> 50</label>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" name="gol3" readonly>
+                  </div>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" name="sum_gol3" readonly>
+                  </div>
+                </div>
+              <div class="form-group">
                 <label for="exampleInputEmail1" class="col-sm-4 control-label">Biaya Admin</label>
                 <div class="col-sm-8">
                   <input type="text" class="form-control" name="biaya_adm" readonly>
@@ -164,8 +201,24 @@ $kode = $kd . $tgl . $rand;
         },
         cache: false,
         success: function(data) {
-          $.each(data, function(id_tarif, no_pelanggan) {
-            console.log(data[0].no_pelanggan)
+          $.each(data, function() {
+            //console.log(data[0]
+            if(data[0].gol1 != 0){
+              sum_gol_1 = parseInt(data[0].gol1 * data[0].hgol1);
+            }else{
+              sum_gol_1 = 0;
+            }
+            if(data[0].gol2 != 0){
+              sum_gol_2 = parseInt(data[0].gol2 * data[0].hgol2);
+            }else{
+              sum_gol_2 = 0;
+            }
+            if(data[0].gol3 != 0){
+              sum_gol_3 = parseInt(data[0].gol3 * data[0].hgol3);
+            }else{
+              sum_gol_3 = 0;
+            }
+
             $('[name="no_pelanggan"]').val(data[0].no_pelanggan);
             $('[name="no_rekening"]').val(data[0].no_rekening);
             $('[name="nama_lengkap"]').val(data[0].nama_lengkap);
@@ -179,6 +232,15 @@ $kode = $kd . $tgl . $rand;
             $('[name="biaya_adm"]').val(data[0].biaya_adm);
             $('[name="total_bayar"]').val(data[0].total_bayar);
             $('[name="idtarif"]').val(data[0].idtarif);
+            $('[name="gol1"]').val(parseInt(data[0].gol1));
+            $('[name="gol2"]').val(parseInt(data[0].gol2));
+            $('[name="gol3"]').val(parseInt(data[0].gol3));
+            $('[name="hgol1"]').val(parseInt(data[0].hgol1));
+            $('[name="hgol2"]').val(parseInt(data[0].hgol2));
+            $('[name="hgol3"]').val(parseInt(data[0].hgol3));
+            $('[name="sum_gol1"]').val('Rp '+sum_gol_1);
+            $('[name="sum_gol2"]').val('Rp '+sum_gol_2);
+            $('[name="sum_gol3"]').val('Rp '+sum_gol_3);
           });
         }
       });
