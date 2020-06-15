@@ -27,26 +27,23 @@ $kode = $kd . $tgl . $rand;
       <!-- form start -->
       <form class="form-horizontal" method="POST" action="<?= base_url() . 'pembayaran/action_tambah' ?>">
         <div class="box-body">
-          <div class="form-group">
-            <div class="row">
+           <div class="form-group">
               <label for="inputEmail3" class="col-sm-2 control-label">ID Tarif</label>
               <div class="col-sm-4">
-                <!-- <input type="hidden" class="form-control" name="id_tarif"> -->
                 <select id="id_tarif" class="form-control" name="id_tarif">
                   <?php foreach ($tarif as $tarif) : ?>
                     <option value="<?= $tarif->id_tarif ?>">Kode Pemakaian <?= $tarif->id_tarif ?> - <?= $tarif->nama_lengkap ?>(<?= $tarif->no_pelanggan ?>)</option>
                   <?php endforeach; ?>
                 </select>
               </div>
-              <div class="col-sm-6">
+              <!-- <div class="col-sm-6">
                 <label for="inputEmail3" class="col-sm-4 control-label">Harga per-meter</label>
                 <div class="col-sm-4">
                   <input type="text" class="form-control" name="hgol1" readonly>
                   <input type="text" class="form-control" name="hgol2" readonly>
                   <input type="text" class="form-control" name="hgol3" readonly>
                 </div>
-              </div>
-            </div>
+              </div> -->
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1" class="col-sm-2 control-label">No Pelanggan</label>
@@ -152,11 +149,8 @@ $kode = $kd . $tgl . $rand;
                   <input type="text" class="form-control" name="total_bayar" readonly>
                 </div>
               </div>
-
             </div>
           </div>
-
-
           <hr />
           <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">Kode</label>
@@ -178,13 +172,11 @@ $kode = $kd . $tgl . $rand;
           </div>
           <button type="submit" class="btn btn-info pull">OKE</button>
         </div>
+        </form>
     </div>
+  </section>
 </div>
-<!-- /.box-footer -->
-</form>
-</div>
-</section>
-</div>
+
 
 <script src="<?= base_url('bower_components/jquery/dist/jquery.min.js') ?>"></script>
 
@@ -202,7 +194,6 @@ $kode = $kd . $tgl . $rand;
         cache: false,
         success: function(data) {
           $.each(data, function() {
-            //console.log(data[0]
             if(data[0].gol1 != 0){
               sum_gol_1 = parseInt(data[0].gol1 * data[0].hgol1);
             }else{
@@ -218,7 +209,6 @@ $kode = $kd . $tgl . $rand;
             }else{
               sum_gol_3 = 0;
             }
-
             $('[name="no_pelanggan"]').val(data[0].no_pelanggan);
             $('[name="no_rekening"]').val(data[0].no_rekening);
             $('[name="nama_lengkap"]').val(data[0].nama_lengkap);
