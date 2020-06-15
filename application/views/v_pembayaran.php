@@ -33,6 +33,7 @@ $kode = $kd . $tgl . $rand;
                 <label for="inputEmail3" class="col-sm-4 control-label">ID Tarif</label>
                 <div class="col-sm-8">
                   <select id="id_tarif" class="form-control" name="id_tarif">
+                    <option value="0">Silahkan pilih</option>
                     <?php foreach ($tarif as $tarif) : ?>
                       <option value="<?= $tarif->id_tarif ?>">Kode Pemakaian <?= $tarif->id_tarif ?> - <?= $tarif->nama_lengkap ?>(<?= $tarif->no_pelanggan ?>)</option>
                     <?php endforeach; ?>

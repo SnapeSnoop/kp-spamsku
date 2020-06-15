@@ -48,6 +48,11 @@ class M_tarif extends CI_Model {
 
 	function tambah($data){
 		$this->db->insert('tb_tarif',$data);
+    }
+    
+    function count_tarif(){
+        $query = $this->db->get('tb_tarif');
+        return $query->num_rows();
 	}
 }
 ?>

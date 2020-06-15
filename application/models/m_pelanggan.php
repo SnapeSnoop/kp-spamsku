@@ -25,5 +25,10 @@ class M_pelanggan extends CI_Model {
 	function hapus($where){
 		$query = $this->db->delete('tb_pelanggan',$where);
 	}
+
+	function count_customer(){
+        $query = $this->db->get('tb_pelanggan');
+        return $query->num_rows();
+	}
 }
 ?>
