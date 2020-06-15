@@ -6,11 +6,13 @@ class Tarif extends MY_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('m_tarif');
+		$this->load->model('m_pelanggan');
 	}
 
 	function index(){
 		$data = array(
 			'tarif' => $this->m_tarif->get_tarif(),
+			'pelanggan' => $this->m_pelanggan->get_pelanggan(),
 		);
 		$this->render_page('v_tarif',$data);
 	}
