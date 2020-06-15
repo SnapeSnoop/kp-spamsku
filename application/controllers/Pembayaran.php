@@ -8,7 +8,12 @@ class Pembayaran extends MY_Controller {
 	}
 
 	function index(){
-		$this->render_page('v_pembayaran');
+		$this->load->model('m_tarif');
+		$data = array(
+			'tarif' => $this->m_tarif->get_tarif(),
+		);
+
+		$this->render_page('v_pembayaran', $data);
 	}
 
 	function datapembayaran(){
@@ -18,32 +23,31 @@ class Pembayaran extends MY_Controller {
 		$this->render_page('v_datapembayaran',$data);
 	}
 
-	function get_pelanggan(){
-		$id = $this->input->post('no_pelanggan');
+	function get_transaction(){
+		$this->load->model('m_tarif');
+		$id = $this->input->post('id_tarif');
 		$sta = 'Belum bayar';
-		$data = $this->m_pembayaran->pelanggan_id($id,$sta);
+		$data = $this->m_tarif->get_tarif_transaction($id,$sta);
 		echo json_encode($data);
 	}
 
 	function action_tambah(){
-		$id = $this->input->post('idtarif');
+		$id = $this->input->post('id_tarif');
+		$status_bayar = $_POST['jumlah'] >= $_POST['total_bayar'] ? 'Lunas' : 'Belum Lunas';
 		$data = array(
 			'kode_bayar' => $this->input->post('kode'),
 			'no_pelanggan' => $this->input->post('no_pelanggan'),
 			'bulan_bayar' => $this->input->post('bulan'),
 			'jumlah_bayar' => $this->input->post('jumlah'),
 			'tanggal_bayar' => $this->input->post('tgl'),
-			'status_bayar' => 'Lunas'
+			'status_bayar' => $status_bayar
 		);
-
 		$data2 = array(
-			'status' => 'Lunas'
-		);	
-
+			'status' => $status_bayar
+		);
 		$where = array('id_tarif' => $id);	
-
 		$this->m_pembayaran->tambah($data,$where,$data2);
-		redirect('pembayaran');
+		redirect('pembayaran/detail/'.$_POST['no_pelanggan']);
 	}
 
 	function detail($id){

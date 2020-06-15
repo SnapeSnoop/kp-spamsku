@@ -25,5 +25,10 @@ class M_pengaduan extends CI_Model {
 	function hapus($where){
 		$query = $this->db->delete('tb_pengaduan',$where);
 	}
+
+	function count_pengaduan(){
+        $query = $this->db->get('tb_pengaduan');
+        return $query->num_rows();
+	}
 }
 ?>

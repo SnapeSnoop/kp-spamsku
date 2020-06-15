@@ -97,6 +97,11 @@ class M_pembayaran extends CI_Model {
 	{
 		$this->db->where('reservation_code', $reservation_code);
 		$this->db->update('reservation', $data);
+    }
+    
+    function count_pembayaran(){
+        $query = $this->db->get('tb_pembayaran');
+        return $query->num_rows();
 	}
 
 }

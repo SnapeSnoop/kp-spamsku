@@ -18,7 +18,7 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>150</h3>
+              <h3><?= $total_pelanggan ?></h3>
               <p>Data Pelanggan</p>
             </div>
             <div class="icon">
@@ -32,8 +32,8 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>53</h3>
-              <p>Data Tarif</p>
+              <h3><?= $total_tarif ?></h3>
+              <p>Data Pemakaian</p>
             </div>
             <div class="icon">
               <i class="fa fa-tint"></i>
@@ -46,7 +46,7 @@
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>44</h3>
+              <h3><?= $total_pembayaran ?></h3>
               <p>Data Pembayaran</p>
             </div>
             <div class="icon">
@@ -60,7 +60,7 @@
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
-              <h3>65</h3>
+              <h3><?= $total_pengaduan ?></h3>
               <p>Data Pengaduan</p>
             </div>
             <div class="icon">
