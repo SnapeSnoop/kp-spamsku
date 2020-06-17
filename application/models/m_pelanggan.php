@@ -5,6 +5,7 @@ class M_pelanggan extends CI_Model {
 	function get_pelanggan(){
 		$data = $this->db->select('*')
 						->from('tb_pelanggan')
+						->join('tb_golongan','tb_golongan.idgolongan=tb_pelanggan.idgolongan')
 						->get();
 		return $data->result();
 	}
