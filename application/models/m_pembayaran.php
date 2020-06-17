@@ -76,8 +76,6 @@ class M_pembayaran extends CI_Model {
         return $data->result();
     }
 
-<<<<<<< HEAD
-=======
     function get_cetak(){
          $data = $this->db->select('*')
                         ->from('tb_pembayaran')
@@ -105,7 +103,6 @@ class M_pembayaran extends CI_Model {
         $query = $this->db->get('tb_pembayaran');
         return $query->num_rows();
 	}
->>>>>>> a90f2e6a82000cfb3b95e83e6a475a1c5f9bed55
 
 }
 

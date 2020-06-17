@@ -29,7 +29,7 @@
               <th style="vertical-align:middle;text-align:center;width:50px;" rowspan=3>Tarif </td>
               <th style="vertical-align:middle;text-align:center;width:50px;" rowspan=3>Beban</th>
               <th style="vertical-align:middle; text-align:center;width:50px;" colspan=3>Harga Per Meter</th>
-              <th style="vertical-align:middle;text-align:center;width:50px;" rowspan=3>Ket</th>
+              
             </tr>
             <tr>
               <th style="text-align:center;text-align:center;width:50px;">Meter Awal</th>
@@ -48,21 +48,34 @@
             </tr>
           </thead>
           <tbody>
-            <!-- <?php
+            <?php
                   $no = 1;
-                  foreach ($databayar as $data) {
+                  foreach ($cetak as $data) {
                   ?>
                     <tr>
                       <td><?= $no++; ?></td>
-                      <td><?= $data->no_rekening ?></td>
                       <td><?= $data->no_pelanggan ?></td>
                       <td><?= $data->nama_lengkap ?></td>
+                      <td><?= $data->mawal ?></td>
+                      <td><?= $data->makhir ?></td>
+                      <td><?= $data->gol1 ?></td>
+                      <td><?= $data->gol2 ?></td>
+                      <td><?= $data->gol3 ?></td>
+                      <td><?= $data->pemakaian ?></td>
+                      <td><?= $total_gol1 = $data->gol1 * $data->h_gol1 ?></td>
+                      <td><?= $total_gol2 = $data->gol2 * $data->h_gol2 ?></td>
+                      <td><?= $total_gol3 =  $data->gol3 * $data->h_gol3 ?></td>
+                      <td><?= ($total_gol1+$total_gol2+$total_gol3)+5000 ?></td>
                       <td><?= $data->golongan ?></td>
-                      <td>
+                      <td><?= 5000 ?></td>
+                      <td><?= $data->h_gol1 ?></td>
+                      <td><?= $data->h_gol2 ?></td>
+                      <td><?= $data->h_gol3 ?></td>
+                      <!-- <td>
                         <a href="<?= base_url() . 'pembayaran/detail/' . $data->no_pelanggan ?>"><i class="fa fa-eye btn btn-default"></i></a>
-                      </td>
+                      </td> -->
                     </tr>
-                  <?php } ?> -->
+                  <?php } ?>
           </tbody>
         </table>
       </div>
