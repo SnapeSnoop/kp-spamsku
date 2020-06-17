@@ -77,7 +77,11 @@
                  <div class="form-group">
                    <label for="inputEmail3" class="col-sm-4 control-label">No Rekening</label>
                    <div class="col-sm-8">
-                     <input type="text" class="form-control" name="norekening" id="norekening" placeholder="Masukan Nomor Rekening">
+                     <select name="norekening" id="norekening" class="form-control">
+                    <?php foreach($pelanggan as $rekening): ?>
+                        <option value="<?= $rekening->no_rekening ?>"><?= $rekening->no_rekening ?> - <?= $rekening->nama_lengkap ?></option>
+                    <?php endforeach; ?>
+                    </select>
                    </div>
                  </div>
                  <div class="form-group">
@@ -133,16 +137,11 @@
      </div>
    </div>
  </div>
-
-
-
  <script src="<?= base_url('bower_components/jquery/dist/jquery.min.js') ?>"></script>
-
  <script type="text/javascript">
    $(document).ready(function() {
-     $('#norekening').on('input', function() {
-
-       var norekening = $(this).val();
+     $('#norekening').on('change', function() {
+       let norekening = $(this).val();
        $.ajax({
          type: "POST",
          url: "<?php echo base_url('index.php/tarif/get_data') ?>",

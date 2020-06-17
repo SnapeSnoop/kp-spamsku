@@ -32,10 +32,27 @@ class M_tarif extends CI_Model {
 						->join('tb_golongan','tb_tarif.idgolongan=tb_golongan.idgolongan')
 						->get();
 		return $data->result();
-	}
+    }
+    
+    function get_tarif_transaction($id_tarif){
+
+        $data = $this->db->select('tb_tarif.id_tarif, tb_tarif.no_pelanggan, tb_pelanggan.no_rekening, tb_pelanggan.nama_lengkap, tb_pelanggan.pekerjaan, tb_pelanggan.alamat, tb_golongan.golongan, tb_tarif.bulan_rekening, tb_tarif.mawal, tb_tarif.makhir, tb_tarif.pemakaian, tb_tarif.total_bayar, tb_golongan.biaya_adm, tb_tarif.gol1, tb_tarif.gol2, tb_tarif.gol3, tb_golongan.gol1 as hgol1, tb_golongan.gol2 as hgol2, tb_golongan.gol3 as hgol3 ')
+						->from('tb_tarif')
+						->join('tb_pelanggan','tb_tarif.no_pelanggan=tb_pelanggan.no_pelanggan')
+                        ->join('tb_golongan','tb_tarif.idgolongan=tb_golongan.idgolongan')
+                        ->where('id_tarif',$id_tarif)
+						->get();
+		return $data->result();
+
+    }
 
 	function tambah($data){
 		$this->db->insert('tb_tarif',$data);
+    }
+    
+    function count_tarif(){
+        $query = $this->db->get('tb_tarif');
+        return $query->num_rows();
 	}
 }
 ?>

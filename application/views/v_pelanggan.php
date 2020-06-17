@@ -3,7 +3,6 @@
    <section class="content-header">
      <h1>
        Data Pelanggan
-
      </h1>
      <ol class="breadcrumb">
        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -16,6 +15,7 @@
      <div class="box">
        <div class="box-header">
          <button class="btn btn-primary fa fa-plus" data-toggle="modal" data-target="#modal-default"> Tambah</button>
+         <button class="btn btn-success fa fa-file" data-toggle="modal" data-target="#modal-import"> Impor Berkas</button>
        </div>
 
        <!-- /.box-header -->
@@ -24,8 +24,8 @@
            <thead>
              <tr>
                <th>No</th>
-               <th>Id Pelanggan</th>
-               <th>No Rekening</th>
+               <th>ID Pelanggan</th>
+               <th>Golongan</th>
                <th>Nama</th>
                <th>Tempat/Tanggal Lahir</th>
                <th>alamat</th>
@@ -43,7 +43,7 @@
                <tr>
                  <td><?= $no++; ?></td>
                  <td><?= $data->no_pelanggan ?></td>
-                 <td><?= $data->no_rekening ?></td>
+                 <td><?= $data->golongan ?></td>
                  <td><?= $data->nama_lengkap ?></td>
                  <td><?= $data->tempat_lahir . ' ' . $data->tanggal_lahir ?></td>
                  <td><?= $data->alamat ?></td>
@@ -69,8 +69,6 @@
      </div>
    </section>
  </div>
-
-
  <div class="modal fade" id="modal-default">
    <div class="modal-dialog">
      <div class="modal-content">
@@ -124,7 +122,38 @@
    <!-- /.modal-dialog -->
  </div>
 
+ <div class="modal fade" id="modal-import">
+ <div class="modal-dialog">
+     <div class="modal-content">
+       <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span></button>
+         <h4 class="modal-title">Impor berkas pelanggan</h4>
+       </div>
+       <div class="modal-body">
+         <form role="form" action="<?= base_url('excell/importExcel') ?>" enctype="multipart/form-data" method="POST">
+           <div class="box-body">
+             <div class="form-group">
+               <label>Upload Berkas</label>
+               <input type="file" class="form-control" name="file" placeholder="Berkas">
+             </div>
+             <div class="form-group">
+               <label>Pastikan memakai template di bawah ini :</label>
+               <br>
+               <a href="<?= base_url('sample/Template.xlsx') ?>" class="btn btn-success" download>Unduh Template excel</a>
+             </div>
+           </div>
 
+           <div class="modal-footer">
+             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+             <button type="submit" class="btn btn-success">Impor Berkas</button>
+           </div>
+         </form>
+       </div>
+     </div>
+     <!-- /.modal-content -->
+   </div>
+ </div>
  <div class="modal fade" id="modal-edit">
    <div class="modal-dialog">
      <div class="modal-content">
@@ -176,9 +205,6 @@
    </div>
    <!-- /.modal-dialog -->
  </div>
-
-
-
  <script type="text/javascript">
    function select_data($no_pelanggan, $no_rekening, $nama_lengkap, $tempat_lahir, $tanggal_lahir, $alamat, $pekerjaan) {
      $("#nopelanggan").val($no_pelanggan);
