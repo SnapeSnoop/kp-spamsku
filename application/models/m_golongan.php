@@ -21,11 +21,4 @@ class M_golongan extends CI_Model {
 	function hapus($where){
 		$this->db->delete('tb_golongan',$where);
 	}
-
-	function cetak(){
-		$data = $this->db->select('*')
-							->from('tb_golongan')
-							->get();
-		return $data->result();
-	}
 }

@@ -14,7 +14,7 @@
       <div class="row">
         <div class="col-xs-12">
           <h2 class="page-header">
-            <i class="fa fa-globe"></i> Detail Pembayaran PDAM
+            <i class="fa fa-globe"></i> Detail Pembayaran KP-SPAMS
           
           </h2>
         </div>
@@ -114,8 +114,8 @@
   
     <div class="row no-print">
         <div class="col-xs-12">
-          <a href="<?= base_url().'pembayaran/detail/'. $data->no_pelanggan ?>"><button class="btn btn-danger">Kembali</button></a>
-          <a href="<?= base_url().'pembayaran/cetak/'.$data->kode_bayar?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+          <a href="<?= base_url().'cetak/'. $data->no_pelanggan ?>"><button class="btn btn-danger">Kembali</button></a>
+          <a href="<?= base_url().'cetak/'.$data->kode_bayar?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
         </div>
     </div>
       <?php } ?>

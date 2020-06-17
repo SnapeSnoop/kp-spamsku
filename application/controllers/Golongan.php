@@ -50,12 +50,4 @@ class Golongan extends MY_Controller {
 		redirect('golongan');
 	}
 
-	function cetak(){
-		$data = array(
-			'golongan' => $this->m_golongan->cetak(),
-		);
-
-		$this->load->view('v_cetakgolongan',$data);
-	}
-
 }

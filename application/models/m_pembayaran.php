@@ -76,28 +76,6 @@ class M_pembayaran extends CI_Model {
         return $data->result();
     }
 
-    function get_cetak(){
-         $data = $this->db->select('*')
-                        ->from('tb_pembayaran')
-                        ->join('tb_pelanggan','tb_pembayaran.no_pelanggan=tb_pelanggan.no_pelanggan')
-                        ->join('tb_golongan','tb_golongan.idgolongan=tb_pelanggan.idgolongan')
-                        ->get();
-
-        return $data->result();
-    }
-
-    function tampil_payment()
-	{
-		$query =  $this->db->query('SELECT * FROM reservation a
-								   JOIN users b on a.customer_id = b.id');
-		return $query->result();
-    }
-    
-    function confirm_payment($reservation_code, $data)
-	{
-		$this->db->where('reservation_code', $reservation_code);
-		$this->db->update('reservation', $data);
-	}
 
 }
 

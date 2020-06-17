@@ -67,27 +67,6 @@ class Pembayaran extends MY_Controller {
 		$this->load->view('v_cetakstruck',$data);
 	}
 
-	function cetakall(){
-		$data = array(
-			'pembayaran' => $this->m_pembayaran->get_cetak(),
-		);
-		$this->load->view('v_cetakpembayaran',$data);
-	}
-
-	function confirm($status, $flag)
-	{
-		$status = $this->uri->segment(4);
-		$flag = $this->uri->segment(5);
-
-		echo $status;
-		echo $flag;
-
-		$data = array(
-			'status' => $flag,
-		);
-		$this->m_admin->confirm_payment($status,$data);
-		redirect('pembayaran/lihat','refresh');
-	}
 	
 }
 ?>

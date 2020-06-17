@@ -54,14 +54,6 @@ class Pelanggan extends MY_Controller {
         redirect('pelanggan');
     }
 
-    function cetak (){
-    	$data = array(
-    		'pelanggan' => $this->m_pelanggan->get_pelanggan(),
-    	);
-
-    	$this->load->view('v_cetakpelanggan',$data);
-    }
-
 }
 
 ?>
