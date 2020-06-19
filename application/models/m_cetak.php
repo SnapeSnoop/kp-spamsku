@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class M_cetak extends CI_Model {
 
     function get_cetak(){
-         $data = $this->db->select('tb_tarif.id_tarif, tb_golongan.golongan, tb_tarif.no_pelanggan, tb_pelanggan.nama_lengkap, mawal, makhir, tb_tarif.gol1, tb_tarif.gol2, tb_tarif.gol3, tb_tarif.pemakaian, tb_golongan.gol1 as h_gol1, tb_golongan.gol2 as h_gol2, tb_golongan.gol3 as h_gol3 ')
+         $data = $this->db->select('tb_tarif.id_tarif, tb_golongan.golongan, tb_tarif.no_pelanggan, tb_pelanggan.nama_lengkap, mawal, makhir, tb_tarif.gol1, tb_tarif.gol2, tb_tarif.gol3, tb_tarif.pemakaian, tb_golongan.gol1 as h_gol1, tb_golongan.gol2 as h_gol2, tb_golongan.gol3 as h_gol3, tb_golongan.biaya_adm ')
                         ->from('tb_tarif')
                         ->join('tb_pelanggan','tb_tarif.no_pelanggan=tb_pelanggan.no_pelanggan',
                                'tb_pembayaran.nama_lengkap=tb_pelanggan.nama_nama_lengkap')

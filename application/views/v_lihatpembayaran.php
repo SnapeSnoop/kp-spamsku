@@ -1,13 +1,6 @@
  <div class="content-wrapper">
-<section class="content-header">
-      <h1>
-        Detail Pembayaran
-      </h1>
-      
+    <section class="content-header">
     </section>
-
-    
-
     <!-- Main content -->
     <section class="invoice">
       <!-- title row -->
@@ -15,7 +8,6 @@
         <div class="col-xs-12">
           <h2 class="page-header">
             <i class="fa fa-globe"></i> Detail Pembayaran KP-SPAMS
-          
           </h2>
         </div>
         <!-- /.col -->

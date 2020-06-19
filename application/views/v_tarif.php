@@ -78,6 +78,7 @@
                    <label for="inputEmail3" class="col-sm-4 control-label">No Rekening</label>
                    <div class="col-sm-8">
                      <select name="norekening" id="norekening" class="form-control">
+                       <option value="">-- Pilih nomor rekening --</option>
                     <?php foreach($pelanggan as $rekening): ?>
                         <option value="<?= $rekening->no_rekening ?>"><?= $rekening->no_rekening ?> - <?= $rekening->nama_lengkap ?></option>
                     <?php endforeach; ?>
@@ -131,6 +132,9 @@
                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                <button type="submit" class="btn btn-primary">Simpan</button>
              </div>
+             <div class="form-group">
+                 <p class="text-sm">(*) Meteran awal akan muncul otomatis setelah memasukkan tanggal</p>
+              </div>
            </div>
          </form>
        </div>

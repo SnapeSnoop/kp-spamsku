@@ -22,7 +22,7 @@
           <thead>
             <tr>
               <th style="vertical-align:middle;text-align:center;width:50px" rowspan=3>No</th>
-              <th style="vertical-align:middle;text-align:center;width:50px;" rowspan=3>ID Pelanggan </td>
+              <th style="vertical-align:middle;text-align:center;width:50px;" rowspan=3>ID</td>
               <th style="vertical-align:middle;text-align:center;width:50px;" rowspan=3>Nama Pelanggan</th>
               <th style="vertical-align:middle; text-align:center;width:50px;" colspan=5>Hasil Pembacaan Meter Pelanggan</th>
               <th style="vertical-align:middle; text-align:center;width:50px;" colspan=5>Tagihan Pelanggan</th>
@@ -65,9 +65,9 @@
                 <td><?= @$total_gol1 = $data->gol1 * $data->h_gol1 ?></td>
                 <td><?= @$total_gol2 = $data->gol2 * $data->h_gol2 ?></td>
                 <td><?= @$total_gol3 =  $data->gol3 * $data->h_gol3 ?></td>
-                <td><?= ($total_gol1 + $total_gol2 + $total_gol3) + 5000 ?></td>
+                <td><?= ($total_gol1 + $total_gol2 + $total_gol3) + $data->biaya_adm ?></td>
                 <td><?= $data->golongan ?></td>
-                <td><?= 5000 ?></td>
+                <td><?= $data->biaya_adm ?></td>
                 <td><?= $data->h_gol1 ?></td>
                 <td><?= $data->h_gol2 ?></td>
                 <td><?= $data->h_gol3 ?></td>
