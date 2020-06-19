@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 12, 2020 at 04:30 PM
+-- Generation Time: Jun 19, 2020 at 11:56 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
@@ -50,9 +50,7 @@ INSERT INTO `menu` (`id`, `judul_menu`, `link`, `icon`, `is_main_menu`) VALUES
 (7, 'Pembayaran', '#', 'fa fa-money', 0),
 (8, 'Data Pembayaran', 'pembayaran/datapembayaran', 'fa fa-table', 7),
 (9, 'Laporan', '#', 'fa fa-file-pdf-o', 0),
-(10, 'Laporan Golongan', 'golongan/cetak', 'fa fa-file-pdf-o', 9),
-(11, 'Laporan Pelanggan', 'pelanggan/cetak', 'fa fa-file-pdf-o', 9),
-(12, 'Laporan Pembayaran', 'pembayaran/cetakall', 'fa fa-file-pdf-o', 9),
+(12, 'Laporan Pembayaran', 'cetak', 'fa fa-file-pdf-o', 9),
 (14, 'Pengaduan', 'pengaduan', 'fa fa-gavel', 0),
 (16, 'Pembayaran Manual', 'pembayaran', 'fa fa-credit-card', 7),
 (19, 'Konfirmasi Pembayaran', 'konfirmasi', 'fa fa-check', 7);
@@ -112,11 +110,10 @@ CREATE TABLE `tb_konfirmasi` (
   `id` int(20) NOT NULL,
   `nama` varchar(40) NOT NULL,
   `id_pelanggan` varchar(40) NOT NULL,
-  `no_rekening` varchar(40) NOT NULL,
+  `kode_bayar` varchar(30) NOT NULL,
   `nominal` varchar(40) NOT NULL,
   `tanggal_transaksi` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `bukti_tf` mediumblob NOT NULL,
-  `bank` varchar(10) NOT NULL,
   `status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -142,9 +139,9 @@ CREATE TABLE `tb_pelanggan` (
 --
 
 INSERT INTO `tb_pelanggan` (`no_pelanggan`, `no_rekening`, `idgolongan`, `nama_lengkap`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `pekerjaan`) VALUES
-('P001', '123456', 1, 'Renita', 'Padang Panjang', '2019-02-19', 'aaa', 'Swasta'),
-('P002', '33222', 2, 'Bagas', 'sad', '2019-02-14', 'wsss', 'sd'),
-('P003', '787878', 1, 'Farhan Affandi', 'Jakarta', '1997-09-09', 'Kebon Jeruk 2', 'Wiraswasta');
+('P001', '123456', 1, 'Renita', 'Kediri', '2019-02-19', 'Jalan Ahmad Yani, no 55, Merjosari, Malang\r\n', 'Swasta'),
+('P002', '33222', 2, 'Bagas', 'Malang', '1989-06-13', 'Jalan Joyo utomo barat no 6, Merjosari, Malang', 'wiraswasta'),
+('P003', '787878', 1, 'Farhan Affandi', 'Jakarta', '1986-09-29', 'Kebon Jeruk 2', 'Wiraswasta');
 
 -- --------------------------------------------------------
 
@@ -168,7 +165,8 @@ CREATE TABLE `tb_pembayaran` (
 INSERT INTO `tb_pembayaran` (`kode_bayar`, `no_pelanggan`, `bulan_bayar`, `jumlah_bayar`, `tanggal_bayar`, `status_bayar`) VALUES
 ('PA1903030179', 'P001', 'Februari 2019', '305000', '2019-03-01', 'Lunas'),
 ('PA1903030266', 'p001', 'Mei 2019', '205000', '2019-03-02', 'Lunas'),
-('PA2004040956', 'P001', 'April 2020', '605000', '2020-04-09', 'Lunas');
+('PA2004040956', 'P001', 'April 2020', '605000', '2020-04-09', 'Lunas'),
+('PA2006061947', 'P002', '2020-06-25', '3000', '2020-06-19', 'Belum Lunas');
 
 -- --------------------------------------------------------
 
@@ -257,7 +255,10 @@ INSERT INTO `tb_tarif` (`id_tarif`, `no_pelanggan`, `idgolongan`, `bulan_rekenin
 (17, 'P001', 1, '2020-05-09', '70', '90', '', '', '', '20', '', '25000', 1, '2020-05-09', 'Belum bayar'),
 (18, 'P001', 1, '2020-05-10', '70', '100', '', '', '', '30', '', '35000', 1, '2020-05-09', 'Belum bayar'),
 (19, 'P001', 1, '2020-06-11', '70', '150', '', '', '', '80', '', '85000', 1, '2020-06-08', 'Belum bayar'),
-(20, 'P001', 1, '2020-06-10', '150', '200', '', '', '', '50', '', '55000', 1, '2020-06-08', 'Belum bayar');
+(20, 'P001', 1, '2020-06-10', '150', '200', '', '', '', '50', '', '55000', 1, '2020-06-08', 'Belum bayar'),
+(21, 'P002', 2, '2020-05-18', '250', '300', '10', '40', '0', '50', '', '30000', 1, '2020-06-18', 'Belum bayar'),
+(22, 'P002', 2, '2020-06-25', '300', '400', '10', '40', '50', '100', '', '5100', 1, '2020-06-19', 'Belum Lunas'),
+(23, 'P001', 1, '2020-05-25', '300', '370', '10', '40', '20', '70', '', '5070', 1, '2020-06-19', 'Belum bayar');
 
 -- --------------------------------------------------------
 
@@ -389,7 +390,7 @@ ALTER TABLE `tb_petugas`
 -- AUTO_INCREMENT for table `tb_tarif`
 --
 ALTER TABLE `tb_tarif`
-  MODIFY `id_tarif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_tarif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
