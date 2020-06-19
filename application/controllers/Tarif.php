@@ -23,6 +23,12 @@ class Tarif extends MY_Controller {
 		echo json_encode($data);
 	}
 
+	function get_prev_usage(){
+		$pelanggan = $this->input->post('no_pelanggan');
+		$dat = $this->m_tarif->get_previous_usage_by_month($pelanggan);
+		echo json_encode($dat);
+	}
+
 	function action_tambah(){
 		$tgl = date('Y-m-d');
 		$awal = $this->input->post('mawal');

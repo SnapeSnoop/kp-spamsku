@@ -53,6 +53,25 @@ class M_tarif extends CI_Model {
     function count_tarif(){
         $query = $this->db->get('tb_tarif');
         return $query->num_rows();
-	}
+    }
+    
+    function get_previous_usage_by_month($id_pelanggan){
+        $query = $this->db->query("SELECT bulan_rekening, no_pelanggan, pemakaian
+        FROM tb_tarif
+        WHERE MONTH(bulan_rekening) = MONTH(NOW()) - 1 AND no_pelanggan = '$id_pelanggan' ORDER BY `bulan_rekening` DESC LIMIT 1");
+
+        if($query->num_rows() > 0 ){
+            foreach ($query->result() as $data) {
+                $hasil=array(
+                    'bulan_rekening' => $data->bulan_rekening,
+                    'no_pelanggan' => $data->no_pelanggan,
+                    'pemakaian' => $data->pemakaian,);
+            }
+        }else{
+            $hasil = array('status' => 'Data tidak ditemukan');
+        }
+        return $hasil;
+    }
+
 }
 ?>

@@ -231,6 +231,7 @@ $kode = $kd . $tgl . $rand;
             } else {
               sum_gol_3 = 0;
             }
+            total_biaya = (sum_gol_1 + sum_gol_2 + sum_gol_3) + 5000;
             $('[name="no_pelanggan"]').val(data[0].no_pelanggan);
             $('[name="no_rekening"]').val(data[0].no_rekening);
             $('[name="nama_lengkap"]').val(data[0].nama_lengkap);
@@ -242,7 +243,7 @@ $kode = $kd . $tgl . $rand;
             $('[name="makhir"]').val(data[0].makhir);
             $('[name="pemakaian"]').val(data[0].pemakaian);
             $('[name="biaya_adm"]').val(data[0].biaya_adm);
-            $('[name="total_bayar"]').val(data[0].total_bayar);
+            $('[name="total_bayar"]').val(total_biaya);
             $('[name="idtarif"]').val(data[0].idtarif);
             $('[name="gol1"]').val(parseInt(data[0].gol1));
             $('[name="gol2"]').val(parseInt(data[0].gol2));

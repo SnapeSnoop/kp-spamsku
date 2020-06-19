@@ -108,7 +108,7 @@
                  <div class="form-group">
                    <label for="exampleInputEmail1" class="col-sm-4 control-label">Bulan Rekening</label>
                    <div class="col-sm-8">
-                     <input type="text" class="form-control datepicker" name="bulan" placeholder="Bulan Rekening">
+                     <input id="bulan_rekening" type="text" class="form-control datepicker" name="bulan" placeholder="Bulan Rekening">
                    </div>
                  </div>
                  <div class="form-group">
@@ -163,6 +163,32 @@
        });
        return false;
      });
+   });
+ </script>
 
+<script type="text/javascript">
+   $(document).ready(function() {
+     $('#bulan_rekening').on('change', function() {
+       id_pelanggan = document.getElementById("no_pelanggan").value
+       $.ajax({
+         type: "POST",
+         url: "<?php echo base_url('index.php/tarif/get_prev_usage') ?>",
+         dataType: "JSON",
+         data: {
+          no_pelanggan: id_pelanggan
+         },
+         cache: false,
+         success: function(data) {
+           $.each(data, function(bulan_rekening, no_pelanggan, pemakaian) {
+             if(data.pemakaian > 0){
+              $('[name="mawal"]').val(parseInt(data.pemakaian));
+             }else{
+              $('[name="mawal"]').val("0");
+             }
+           });
+         }
+       });
+       return false;
+     });
    });
  </script>
