@@ -31,6 +31,12 @@ atau secara manual seperti ini:
 
  Nama orang (@username), tempat bekerjanya bila ada.
 
+ ## TODO
+ - Mengambil meteran bulan sebelunya dan ditambahkan ke tagihan sekarang
+ - Total bayar pembayaran ngebug pas di **Total Bayar**
+ - Laporan pembayaran pas cetak
+ - Konfirmasi pembayaran, admin -> klik konfirmasi, user -> input nominal pembayarn & bukti transfer (berdasarkan kode pembayaran)
+
 ## Terima Kasih
 
 Project ini dibangun menggunakan:
