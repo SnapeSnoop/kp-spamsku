@@ -2,8 +2,6 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Data Pembayaran
-       
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -59,7 +57,6 @@
                     <th>Kode Pembayaran</th>
                     <th>Bulan Bayar</th>
                     <th>Jumlah Bayar</th>
-                    <th>Tanggal bayar</th>
                     <th>Status</th>
                     <th>Detail</th>
                   </tr>
@@ -73,8 +70,7 @@
                       <td><?= $no++; ?></td>
                       <td><?= $data->kode_bayar ?></td>
                       <td><?= $data->bulan_bayar ?></td>
-                      <td><?= $data->jumlah_bayar ?></td>
-                      <td><?= $data->tanggal_bayar ?></td>
+                      <td><?= $data->total_bayar ?></td>
                       <td><?= $data->status_bayar ?></td>
                       <td>
                         <a href="<?= base_url().'pembayaran/lihat/'.$data->kode_bayar ?>"><i class="fa fa-eye btn btn-default"></i></a>

@@ -38,8 +38,12 @@ class Pembayaran extends MY_Controller {
 			'kode_bayar' => $this->input->post('kode'),
 			'no_pelanggan' => $this->input->post('no_pelanggan'),
 			'bulan_bayar' => $this->input->post('bulan'),
-			'jumlah_bayar' => $this->input->post('jumlah'),
+			'jumlah_bayar' => "",
 			'tanggal_bayar' => $this->input->post('tgl'),
+			'gol1_bayar' => $this->input->post('sum_gol1'),
+			'gol2_bayar' => $this->input->post('sum_gol2'),
+			'gol3_bayar' => $this->input->post('sum_gol3'),
+			'total_bayar' => $this->input->post('total_bayar'),
 			'status_bayar' => $status_bayar
 		);
 		$data2 = array(
@@ -54,9 +58,8 @@ class Pembayaran extends MY_Controller {
 		$where = $id; 
 		$data['pelanggan'] = $this->m_pembayaran->get_pelanggan($where);
 		$data['detail'] = $this->m_pembayaran->get_detail($where);
-
 		$this->render_page('v_detailpembayaran',$data);
-		}
+	}
 
 
 	function lihat($id){

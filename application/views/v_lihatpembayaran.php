@@ -71,23 +71,23 @@
               <tr>
                 <td>Golongan 1</td>
                 <td>:</td>
-                <td>Rp. <?= number_format($data->jumlah_bayar,0) ?></td>
+                <td>Rp. <?= number_format($data->gol1_bayar,0) ?></td>
               </tr>
               <tr>
                 <td>Golongan 2</td>
                 <td>:</td>
-                <td>Rp. <?= number_format($data->jumlah_bayar,0) ?></td>
+                <td>Rp. <?= number_format($data->gol2_bayar,0) ?></td>
               </tr>
               <tr>
                 <td>Golongan 3</td>
                 <td>:</td>
-                <td>Rp. <?= number_format($data->jumlah_bayar,0) ?></td>
+                <td>Rp. <?= number_format($data->gol3_bayar,0) ?></td>
               </tr>
-               <tr>
+               <!-- <tr>
                 <td>Jumlah </td>
                 <td>:</td>
-                <td>Rp. <?= number_format($data->jumlah_bayar,0) ?></td>
-              </tr>
+                <td>Rp. </td>
+              </tr> -->
               <tr>
                 <td>Biaya beban</td>
                 <td>:</td>
@@ -96,7 +96,7 @@
               <tr>
                 <th>Total</th>
                 <td>:</td>
-                <td>Rp. <?= number_format($data->jumlah_bayar,0)  ?></td>
+                <td>Rp. <?= number_format($data->total_bayar,0)  ?></td>
               </tr>
             </table>
           </div>
@@ -106,7 +106,7 @@
   
     <div class="row no-print">
         <div class="col-xs-12">
-          <a href="<?= base_url().'cetak/'. $data->no_pelanggan ?>"><button class="btn btn-danger">Kembali</button></a>
+          <a href="<?= base_url().'pembayaran/detail/'. $data->no_pelanggan ?>"><button class="btn btn-danger">Kembali</button></a>
           <a href="<?= base_url().'cetak/'.$data->kode_bayar?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
         </div>
     </div>

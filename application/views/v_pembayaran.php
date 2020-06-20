@@ -187,13 +187,13 @@ $kode = $kd . $tgl . $rand;
               <input type="text" class="form-control" name="tgl" id="inputEmail3" value="<?= $tanggal ?>" readonly>
             </div>
           </div>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">Jumlah pembayaran</label>
             <div class="col-sm-10">
               <input type="text" class="form-control" name="jumlah" id="inputEmail3" placeholder="Jumlah bayar">
             </div>
-          </div>
-          <button type="submit" class="btn btn-info pull">OKE</button>
+          </div> -->
+          <button type="submit" class="btn btn-info pull">Submit</button>
         </div>
       </form>
     </div>
@@ -251,9 +251,9 @@ $kode = $kd . $tgl . $rand;
             $('[name="hgol1"]').val(parseInt(data[0].hgol1));
             $('[name="hgol2"]').val(parseInt(data[0].hgol2));
             $('[name="hgol3"]').val(parseInt(data[0].hgol3));
-            $('[name="sum_gol1"]').val('Rp ' + sum_gol_1);
-            $('[name="sum_gol2"]').val('Rp ' + sum_gol_2);
-            $('[name="sum_gol3"]').val('Rp ' + sum_gol_3);
+            $('[name="sum_gol1"]').val(sum_gol_1);
+            $('[name="sum_gol2"]').val(sum_gol_2);
+            $('[name="sum_gol3"]').val(sum_gol_3);
           });
         }
       });
