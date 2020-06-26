@@ -183,9 +183,9 @@
          },
          cache: false,
          success: function(data) {
-           $.each(data, function(bulan_rekening, no_pelanggan, pemakaian) {
-             if(data.pemakaian > 0){
-              $('[name="mawal"]').val(parseInt(data.pemakaian));
+           $.each(data, function(bulan_rekening, no_pelanggan, makhir) {
+             if(data.makhir > 0){
+              $('[name="mawal"]').val(parseInt(data.makhir));
              }else{
               $('[name="mawal"]').val("0");
              }
