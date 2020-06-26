@@ -19,7 +19,7 @@
     <div class="row">
       <div class="col-xs-12">
         <h2 class="page-header">
-          <i class="fa fa-globe"></i> Struck Pembayaran PDAM
+          <i class="fa fa-globe"></i> Struck Pembayaran KP-SPAMS
         </h2>
       </div>
       <!-- /.col -->

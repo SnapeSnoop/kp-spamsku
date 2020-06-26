@@ -78,10 +78,11 @@
                    <label for="inputEmail3" class="col-sm-4 control-label">No Rekening</label>
                    <div class="col-sm-8">
                      <select name="norekening" id="norekening" class="form-control">
-                    <?php foreach($pelanggan as $rekening): ?>
-                        <option value="<?= $rekening->no_rekening ?>"><?= $rekening->no_rekening ?> - <?= $rekening->nama_lengkap ?></option>
-                    <?php endforeach; ?>
-                    </select>
+                       <option value="0">Silahkan pilih</option>
+                       <?php foreach ($pelanggan as $rekening) : ?>
+                         <option value="<?= $rekening->no_rekening ?>"><?= $rekening->no_rekening ?> - <?= $rekening->nama_lengkap ?></option>
+                       <?php endforeach; ?>
+                     </select>
                    </div>
                  </div>
                  <div class="form-group">
@@ -166,7 +167,7 @@
    });
  </script>
 
-<script type="text/javascript">
+ <script type="text/javascript">
    $(document).ready(function() {
      $('#bulan_rekening').on('change', function() {
        id_pelanggan = document.getElementById("no_pelanggan").value
@@ -175,15 +176,15 @@
          url: "<?php echo base_url('index.php/tarif/get_prev_usage') ?>",
          dataType: "JSON",
          data: {
-          no_pelanggan: id_pelanggan
+           no_pelanggan: id_pelanggan
          },
          cache: false,
          success: function(data) {
-           $.each(data, function(bulan_rekening, no_pelanggan, pemakaian) {
-             if(data.pemakaian > 0){
-              $('[name="mawal"]').val(parseInt(data.pemakaian));
-             }else{
-              $('[name="mawal"]').val("0");
+           $.each(data, function(bulan_rekening, no_pelanggan, makhir) {
+             if (data.makhir > 0) {
+               $('[name="mawal"]').val(parseInt(data.makhir));
+             } else {
+               $('[name="mawal"]').val("0");
              }
            });
          }

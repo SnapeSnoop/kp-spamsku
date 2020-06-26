@@ -79,17 +79,17 @@
               <tr>
                 <td>Golongan 1</td>
                 <td>:</td>
-                <td>Rp. <?= number_format($data->jumlah_bayar,0) ?></td>
+                <td>Rp. <?= number_format($data->gol1_bayar,0) ?></td>
               </tr>
               <tr>
                 <td>Golongan 2</td>
                 <td>:</td>
-                <td>Rp. <?= number_format($data->jumlah_bayar,0) ?></td>
+                <td>Rp. <?= number_format($data->gol2_bayar,0) ?></td>
               </tr>
               <tr>
                 <td>Golongan 3</td>
                 <td>:</td>
-                <td>Rp. <?= number_format($data->jumlah_bayar,0) ?></td>
+                <td>Rp. <?= number_format($data->gol3_bayar,0) ?></td>
               </tr>
                <tr>
                 <td>Jumlah </td>
@@ -104,7 +104,7 @@
               <tr>
                 <th>Total</th>
                 <td>:</td>
-                <td>Rp. <?= number_format($data->jumlah_bayar,0)  ?></td>
+                <td>Rp. <?= number_format($data->total_bayar,0)  ?></td>
               </tr>
             </table>
           </div>
