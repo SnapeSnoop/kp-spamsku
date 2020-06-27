@@ -54,11 +54,11 @@
                 <td>:</td>
                 <td><?= $data->nama_lengkap ?></td>
               </tr>
-              <tr>
+              <!-- <tr>
                 <th>No Rekening</th>
                 <td>:</td>
                 <td><?= $data->no_rekening ?></td>
-              </tr>
+              </tr> -->
             </table>
           </div>
         </div>
@@ -79,20 +79,30 @@
                 <td></td>
                 <td></td>
               </tr>
-               <tr>
-                <td></td>
+              <tr>
+                <td>Golongan 1</td>
                 <td>:</td>
-                <td>Rp. <?= number_format($data->jumlah_bayar,0) ?></td>
+                <td>Rp. <?= number_format($data->gol1_bayar,0) ?></td>
               </tr>
               <tr>
-                <td>Biaya Adm</td>
+                <td>Golongan 2</td>
+                <td>:</td>
+                <td>Rp. <?= number_format($data->gol2_bayar,0) ?></td>
+              </tr>
+              <tr>
+                <td>Golongan 3</td>
+                <td>:</td>
+                <td>Rp. <?= number_format($data->gol3_bayar,0) ?></td>
+              </tr>
+              <tr>
+                <td>Biaya beban</td>
                 <td>:</td>
                 <td>Rp. <?= number_format($data->biaya_adm,0) ?></td>
               </tr>
               <tr>
                 <th>Total</th>
                 <td>:</td>
-                <td>Rp. <?= number_format($data->jumlah_bayar,0)  ?></td>
+                <td>Rp. <?= number_format($data->total_bayar,0)  ?></td>
               </tr>
             </table>
           </div>

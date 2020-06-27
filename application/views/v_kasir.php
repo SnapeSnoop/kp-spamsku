@@ -32,7 +32,7 @@
                <th>No Hp</th>
                <th>Email</th>
                <th>Username</th>
-               <th>Password</th>
+               <!-- <th>Password</th> -->
                <th>Action</th>
              </tr>
            </thead>
@@ -51,7 +51,7 @@
                  <td><?= $data->nohp ?></td>
                  <td><?= $data->email ?></td>
                  <td><?= $data->username ?></td>
-                 <td><?= $data->password ?></td>
+                 <!-- <td><?= $data->password ?></td> -->
                  <td>
                    <a style="cursor: pointer;" onclick="select_data(
                           '<?= $data->idptgs ?>',
@@ -63,7 +63,7 @@
                           '<?= $data->nohp ?>',
                           '<?= $data->email ?>',
                           '<?= $data->username ?>',
-                          '<?= $data->password ?>'
+                          // '<?= $data->password ?>'
                         )" data-toggle="modal" data-target="#modal-edit"><i class="btn btn-primary fa fa-pencil"></i></a>
                    <a href="<?php echo base_url() . 'kasir/action_hapus/' . $data->idptgs ?>" onClick="return confirm('Apakah anda yakin menghapus data ini ?')"><i class="btn btn-danger fa fa-trash"></i></a>
                  </td>

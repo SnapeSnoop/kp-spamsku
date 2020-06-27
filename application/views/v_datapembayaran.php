@@ -20,7 +20,7 @@
                 <thead>
                   <tr>
                     <th>No</th>
-                    <th>No Rekening</th>
+                    <!-- <th>No Rekening</th> -->
                     <th>No Pelanggan</th>
                     <th>Nama pelanggan</th>
                     <th>Golongan</th>
@@ -34,7 +34,7 @@
                   ?>
                     <tr>
                       <td><?= $no++; ?></td>
-                      <td><?= $data->no_rekening ?></td>
+                      <!-- <td><?= $data->no_rekening ?></td> -->
                       <td><?= $data->no_pelanggan ?></td>
                       <td><?= $data->nama_lengkap ?></td>
                       <td><?= $data->golongan ?></td>

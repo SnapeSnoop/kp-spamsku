@@ -34,8 +34,8 @@ atau secara manual seperti ini:
  ## TODO
  - Mengambil meteran bulan sebelunya dan ditambahkan ke tagihan sekarang, query meteran akhir dari bulan sebelumnya ✅
  - Total bayar pembayaran ngebug pas di **Total Bayar** ✅
- - Laporan pembayaran pas cetak
- - Konfirmasi pembayaran, admin -> klik konfirmasi, user -> input nominal pembayarn & bukti transfer (berdasarkan kode pembayaran)
+ - Filter Laporan perbulan dan tahun, serta cetak laporan.
+ - Konfirmasi pembayaran, admin -> klik konfirmasi, user -> input nominal pembayarn & bukti transfer (berdasarkan kode pembayaran) -> pada data pembayaran ikut terupdate status pembayaran "Belum Lunas" menjadi Lunas.
   
 
 ## Terima Kasih

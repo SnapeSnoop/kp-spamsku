@@ -14,15 +14,16 @@
   <section class="content">
     <div class="box">
       <div class="box-header">
-        <button class="btn btn-primary fa fa-print" data-toggle="modal" data-target="#modal-default"> Cetak</button>
+        <button class="btn btn-primary " data-toggle="modal" data-target="#modal-cetak"> Filter Dan Cetak</button>
       </div>
+
       <!-- /.box-header -->
       <div class="box-body">
         <table id="example1" class="table table-bordered table-striped">
           <thead>
             <tr>
               <th style="vertical-align:middle;text-align:center;width:50px" rowspan=3>No</th>
-              <th style="vertical-align:middle;text-align:center;width:50px;" rowspan=3>ID Pelanggan </td>
+              <th style="vertical-align:middle;text-align:center;width:50px;" rowspan=3>ID</td>
               <th style="vertical-align:middle;text-align:center;width:50px;" rowspan=3>Nama Pelanggan</th>
               <th style="vertical-align:middle; text-align:center;width:50px;" colspan=5>Hasil Pembacaan Meter Pelanggan</th>
               <th style="vertical-align:middle; text-align:center;width:50px;" colspan=5>Tagihan Pelanggan</th>
@@ -65,15 +66,12 @@
                 <td><?= @$total_gol1 = $data->gol1 * $data->h_gol1 ?></td>
                 <td><?= @$total_gol2 = $data->gol2 * $data->h_gol2 ?></td>
                 <td><?= @$total_gol3 =  $data->gol3 * $data->h_gol3 ?></td>
-                <td><?= ($total_gol1 + $total_gol2 + $total_gol3) + 5000 ?></td>
+                <td><?= ($total_gol1 + $total_gol2 + $total_gol3) + $data->biaya_adm ?></td>
                 <td><?= $data->golongan ?></td>
-                <td><?= 5000 ?></td>
+                <td><?= $data->biaya_adm ?></td>
                 <td><?= $data->h_gol1 ?></td>
                 <td><?= $data->h_gol2 ?></td>
                 <td><?= $data->h_gol3 ?></td>
-                <!-- <td>
-                        <a href="<?= base_url() . 'pembayaran/detail/' . $data->no_pelanggan ?>"><i class="fa fa-eye btn btn-default"></i></a>
-                      </td> -->
               </tr>
             <?php } ?>
           </tbody>
@@ -81,4 +79,46 @@
       </div>
     </div>
   </section>
+
+  <div class="modal fade" id="modal-cetak">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Filter Data Cetak Pelanggan</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form" action="<?= base_url('') ?>" enctype="multipart/form-data" method="POST">
+            <div class="box-body">
+              <div class="form-group">
+                <label>Pilih Bulan : </label>
+                <select name="bulan_rekening" id="bulan_rekening">
+                  <option value="bulan_rekening">Pilih Bulan</option>
+                  <?php foreach ($bulan as $perbulan) : ?>
+                    <option value="<?= $perbulan->bulan_rekening ?>"><?= $perbulan->bulan_rekening ?></option>
+                  <?php endforeach; ?>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Pilih Tahun : </label>
+                <select name="bulan_rekening" id="bulan_rekening">
+                  <option value="bulan_rekening">Pilih Tahun</option>
+                  <?php foreach ($bulan as $perbulan) : ?>
+                    <option value="<?= $perbulan->bulan_rekening ?>"><?= $perbulan->bulan_rekening ?></option>
+                  <?php endforeach; ?>
+                </select>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="print" class="btn btn-success ">Cetak</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+  </div>
 </div>

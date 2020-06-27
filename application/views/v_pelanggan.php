@@ -27,9 +27,9 @@
                <th>ID Pelanggan</th>
                <th>Golongan</th>
                <th>Nama</th>
-               <th>Tempat/Tanggal Lahir</th>
+               <!-- <th>Tempat/Tanggal Lahir</th>
                <th>alamat</th>
-               <th>Pekerjaan</th>
+               <th>Pekerjaan</th> -->
                <?php if ($this->session->userdata('akses') == "1") { ?>
                  <th>Action</th>
                <?php } ?>
@@ -45,9 +45,9 @@
                  <td><?= $data->no_pelanggan ?></td>
                  <td><?= $data->golongan ?></td>
                  <td><?= $data->nama_lengkap ?></td>
-                 <td><?= $data->tempat_lahir . ' ' . $data->tanggal_lahir ?></td>
+                 <!-- <td><?= $data->tempat_lahir . ' ' . $data->tanggal_lahir ?></td>
                  <td><?= $data->alamat ?></td>
-                 <td><?= $data->pekerjaan ?></td>
+                 <td><?= $data->pekerjaan ?></td> -->
                  <?php if ($this->session->userdata('akses') == "1") { ?>
                    <td>
                      <a style="cursor: pointer;" onclick="select_data(
@@ -92,7 +92,7 @@
                <label for="exampleInputPassword1">Nama Lengkap</label>
                <input type="text" class="form-control" id="exampleInputPassword1" name="nama" placeholder="Nama Lengkap">
              </div>
-             <div class="form-group">
+             <!-- <div class="form-group">
                <label for="exampleInputPassword1">Tempat Lahir</label>
                <input type="text" class="form-control" id="exampleInputPassword1" name="tempat" placeholder="Tempat lahir">
              </div>
@@ -107,7 +107,7 @@
              <div class="form-group">
                <label for="exampleInputPassword1">Pekerjaan</label>
                <input type="text" class="form-control" id="exampleInputPassword1" name="pekerjaan" placeholder="Pekerjaan">
-             </div>
+             </div> -->
            </div>
 
            <div class="modal-footer">
@@ -177,7 +177,7 @@
                <label for="exampleInputPassword1">Nama Lengkap</label>
                <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Lengkap">
              </div>
-             <div class="form-group">
+             <!-- <div class="form-group">
                <label for="exampleInputPassword1">Tempat Lahir</label>
                <input type="text" class="form-control" id="tempat" name="tempat" placeholder="Tempat lahir">
              </div>
@@ -192,7 +192,7 @@
              <div class="form-group">
                <label for="exampleInputPassword1">Pekerjaan</label>
                <input type="text" class="form-control" id="pekerjaan" name="pekerjaan" placeholder="Pekerjaan">
-             </div>     
+             </div>      -->
            </div>
            <div class="modal-footer">
              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

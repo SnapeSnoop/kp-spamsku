@@ -49,9 +49,10 @@ class M_pembayaran extends CI_Model {
     }
 
     function get_detail($where){
-        $data = $this->db->select('*')
+        $data = $this->db->select('tb_pembayaran.kode_bayar, tb_pembayaran.bulan_bayar, tb_pembayaran.status_bayar, tb_pembayaran.no_pelanggan, tb_pembayaran.total_bayar, tb_pelanggan.nama_lengkap ')
                         ->from('tb_pembayaran')
-                        ->where('no_pelanggan',$where)
+                        ->join('tb_pelanggan','tb_pembayaran.no_pelanggan=tb_pelanggan.no_pelanggan')
+                        ->where('tb_pembayaran.no_pelanggan',$where)
                         ->get();
         return $data->result();
     }

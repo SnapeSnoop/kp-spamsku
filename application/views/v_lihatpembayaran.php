@@ -1,13 +1,6 @@
  <div class="content-wrapper">
-<section class="content-header">
-      <h1>
-        Detail Pembayaran
-      </h1>
-      
+    <section class="content-header">
     </section>
-
-    
-
     <!-- Main content -->
     <section class="invoice">
       <!-- title row -->
@@ -15,7 +8,6 @@
         <div class="col-xs-12">
           <h2 class="page-header">
             <i class="fa fa-globe"></i> Detail Pembayaran KP-SPAMS
-          
           </h2>
         </div>
         <!-- /.col -->
@@ -51,11 +43,11 @@
                 <td>:</td>
                 <td><?= $data->nama_lengkap ?></td>
               </tr>
-              <tr>
+              <!-- <tr>
                 <th>No Rekening</th>
                 <td>:</td>
                 <td><?= $data->no_rekening ?></td>
-              </tr>
+              </tr> -->
             </table>
           </div>
         </div>
@@ -91,11 +83,11 @@
                 <td>:</td>
                 <td>Rp. <?= number_format($data->gol3_bayar,0) ?></td>
               </tr>
-               <tr>
+               <!-- <tr>
                 <td>Jumlah </td>
                 <td>:</td>
-                <td>Rp. <?= number_format($data->jumlah_bayar,0) ?></td>
-              </tr>
+                <td>Rp. </td>
+              </tr> -->
               <tr>
                 <td>Biaya beban</td>
                 <td>:</td>
@@ -112,12 +104,12 @@
         <!-- /.col -->
       </div>
   
-    <div class="row no-print">
+    <div class="row no-print">  
         <div class="col-xs-12">
-          <a href="<?= base_url().'cetak/'. $data->no_pelanggan ?>"><button class="btn btn-danger">Kembali</button></a>
-          <a href="<?= base_url().'cetak/'.$data->kode_bayar?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+          <a href="<?= base_url().'pembayaran/detail/'. $data->no_pelanggan ?>"><button class="btn btn-danger">Kembali</button></a>
+          <a href="<?= base_url().'pembayaran/cetak/'.$data->kode_bayar?>" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
         </div>
-    </div>
+    </div>  
       <?php } ?>
     </section>
     <!-- /.content -->

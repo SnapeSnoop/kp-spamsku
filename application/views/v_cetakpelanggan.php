@@ -19,7 +19,7 @@
     <div class="row">
       <div class="col-xs-12">
         <h2 class="page-header">
-          <i class="fa fa-globe"></i> Data Pelangan
+          <i class="fa fa-globe"></i> Data Pelanggan
         </h2>
       </div>
       <!-- /.col -->
