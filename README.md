@@ -29,7 +29,8 @@ Selain itu, dalam proses pembayaran air setiap bulan sering terjadi masalah, ban
 Bisa menggunakan [all-contributors](https://github.com/all-contributors/all-contributors)
 atau secara manual seperti ini:
 
- Nama orang (@username), tempat bekerjanya bila ada.
+@ffadilaputra
+@SnapeSnoop
 
  ## TODO
  - Mengambil meteran bulan sebelunya dan ditambahkan ke tagihan sekarang, query meteran akhir dari bulan sebelumnya ✅
