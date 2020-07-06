@@ -3,7 +3,6 @@
    <section class="content-header">
      <h1>
        Data Tarif
-
      </h1>
      <ol class="breadcrumb">
        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -29,9 +28,6 @@
                <th>Golongan</th>
                <th>Meter Awal</th>
                <th>Meter Akhir</th>
-               <!-- <th>0 - 10</th>
-               <th>11 - 50</th>
-               <th> >50 </th> -->
                <th> Total Pemakaian</th>
              </tr>
            </thead>
@@ -47,9 +43,6 @@
                  <td><?= $data->golongan ?></td>
                  <td><?= $data->mawal ?></td>
                  <td><?= $data->makhir ?></td>
-                 <!-- <td><?= $data->gol1 ?></td>
-                 <td><?= $data->gol2 ?></td>
-                 <td><?= $data->gol3 ?></td> -->
                  <td><?= $data->pemakaian ?></td>
                </tr>
              <?php } ?>
@@ -75,26 +68,20 @@
              <div class="row">
                <div class="col-md-6">
                  <div class="form-group">
-                   <label for="inputEmail3" class="col-sm-4 control-label">No Rekening</label>
+                   <label for="inputEmail3" class="col-sm-4 control-label">Nama Pelanggan</label>
                    <div class="col-sm-8">
-                     <select name="norekening" id="norekening" class="form-control">
-                       <option value="">-- Pilih nomor rekening --</option>
+                     <select name="no_pelanggan" id="no_pelanggan" class="form-control">
+                       <option value="">-- Pilih nomor pelanggan --</option>
                        <?php foreach ($pelanggan as $rekening) : ?>
-                         <option value="<?= $rekening->no_rekening ?>"><?= $rekening->nama_lengkap ?></option>
+                         <option value="<?= $rekening->no_pelanggan ?>"><?= $rekening->nama_lengkap ?></option>
                        <?php endforeach; ?>
                      </select>
                    </div>
                  </div>
                  <div class="form-group">
-                   <label for="exampleInputEmail1" class="col-sm-4 control-label">No Pelanggan</label>
+                   <label for="exampleInputEmail1" class="col-sm-4 control-label">ID Pelanggan</label>
                    <div class="col-sm-8">
-                     <input type="text" class="form-control" id="no_pelanggan" name="no_pelanggan" placeholder="No Pelanggan" readonly>
-                   </div>
-                 </div>
-                 <div class="form-group">
-                   <label for="exampleInputEmail1" class="col-sm-4 control-label">Nama Pelanggan</label>
-                   <div class="col-sm-8">
-                     <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Pelanggan" readonly>
+                     <input type="text" class="form-control" id="no_pelanggan" name="no_pelanggan" placeholder="ID Pelanggan" readonly>
                    </div>
                  </div>
                  <div class="form-group">
@@ -144,14 +131,14 @@
  <script src="<?= base_url('bower_components/jquery/dist/jquery.min.js') ?>"></script>
  <script type="text/javascript">
    $(document).ready(function() {
-     $('#norekening').on('change', function() {
-       let norekening = $(this).val();
+     $('#no_pelanggan').on('change', function() {
+       let no_pelanggan = $(this).val();
        $.ajax({
          type: "POST",
          url: "<?php echo base_url('index.php/tarif/get_data') ?>",
          dataType: "JSON",
          data: {
-           norekening: norekening
+           no_pelanggan: no_pelanggan
          },
          cache: false,
          success: function(data) {

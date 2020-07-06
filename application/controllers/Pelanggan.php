@@ -18,12 +18,8 @@ class Pelanggan extends MY_Controller {
 	function action_tambah(){
 		$data = array(
 			'no_pelanggan' => $this->input->post('no_pelanggan'),
-			'no_rekening' => $this->input->post('no_rekening'),
+			'idgolongan' => $this->input->post('idgolongan'),
 			'nama_lengkap' => $this->input->post('nama'),
-			'tempat_lahir' => $this->input->post('tempat'),
-			'tanggal_lahir' => $this->input->post('tgl_lahir'),
-			'alamat' => $this->input->post('alamat'),
-			'pekerjaan' => $this->input->post('pekerjaan'),
 		);
 
 		$this->m_pelanggan->tambah($data);
@@ -34,12 +30,8 @@ class Pelanggan extends MY_Controller {
 		$id = $this->input->post('no_pelanggan');
 		$data = array(
 			'no_pelanggan' => $id,
-			'no_rekening' => $this->input->post('no_rekening'),
-			'nama_lengkap' => $this->input->post('nama'),
-			'tempat_lahir' => $this->input->post('tempat'),
-			'tanggal_lahir' => $this->input->post('tgl_lahir'),
-			'alamat' => $this->input->post('alamat'),
-			'pekerjaan' => $this->input->post('pekerjaan'),
+			'idgolongan' => $this->input->post('idgolongan'),
+			'nama_lengkap' => $this->input->post('nama_lengkap'),
 		);
 
 		$where = array('no_pelanggan'=> $id);

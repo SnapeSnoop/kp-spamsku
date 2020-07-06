@@ -43,11 +43,6 @@
                 <td>:</td>
                 <td><?= $data->nama_lengkap ?></td>
               </tr>
-              <!-- <tr>
-                <th>No Rekening</th>
-                <td>:</td>
-                <td><?= $data->no_rekening ?></td>
-              </tr> -->
             </table>
           </div>
         </div>
@@ -83,11 +78,6 @@
                 <td>:</td>
                 <td>Rp. <?= number_format($data->gol3_bayar,0) ?></td>
               </tr>
-               <!-- <tr>
-                <td>Jumlah </td>
-                <td>:</td>
-                <td>Rp. </td>
-              </tr> -->
               <tr>
                 <td>Biaya beban</td>
                 <td>:</td>

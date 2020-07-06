@@ -54,11 +54,6 @@
                 <td>:</td>
                 <td><?= $data->nama_lengkap ?></td>
               </tr>
-              <!-- <tr>
-                <th>No Rekening</th>
-                <td>:</td>
-                <td><?= $data->no_rekening ?></td>
-              </tr> -->
             </table>
           </div>
         </div>

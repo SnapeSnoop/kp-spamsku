@@ -42,6 +42,14 @@ class Konfirmasi extends MY_Controller {
 			);
 			
 			$this->m_konfirmasi->tambah($data);
+
+			$status = $this->input->post('status');
+
+			if($status=="1"){
+				$kode_bayar = $this->input->post('kode_bayar');
+				$this->m_konfirmasi->lunas($kode_bayar);
+			}
+
 			redirect('konfirmasi');
 		}
 	}
@@ -62,5 +70,3 @@ class Konfirmasi extends MY_Controller {
 	}
 
 }
-
-?>

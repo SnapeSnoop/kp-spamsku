@@ -18,7 +18,7 @@ class Tarif extends MY_Controller {
 	}
 
 	function get_data(){
-		$id = $this->input->post('norekening');
+		$id = $this->input->post('no_pelanggan');
 		$data = $this->m_tarif->rekening_id($id);
 		echo json_encode($data);
 	}

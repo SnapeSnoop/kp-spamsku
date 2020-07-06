@@ -46,30 +46,12 @@ $kode = $kd . $tgl . $rand;
                   <input type="text" class="form-control" name="no_pelanggan" readonly>
                 </div>
               </div>
-              <!-- <div class="form-group">
-                <label for="exampleInputEmail1" class="col-sm-4 control-label">No rekening</label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" name="no_rekening" readonly>
-                </div>
-              </div> -->
               <div class="form-group">
                 <label for="exampleInputEmail1" class="col-sm-4 control-label">Nama Pelanggan</label>
                 <div class="col-sm-8">
                   <input type="text" class="form-control" name="nama_lengkap" readonly>
                 </div>
               </div>
-              <!-- <div class="form-group">
-                <label for="exampleInputEmail1" class="col-sm-4 control-label">Pekerjaan</label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" name="pekerjaan" readonly>
-                </div>
-              </div> -->
-              <!-- <div class="form-group">
-                <label for="exampleInputEmail1" class="col-sm-4 control-label">Alamat</label>
-                <div class="col-sm-8">
-                  <textarea type="text" class="form-control" name="alamat" readonly></textarea>
-                </div>
-              </div> -->
             </div>
             <div class="col-md-6">
               <div class="form-group">
@@ -233,10 +215,7 @@ $kode = $kd . $tgl . $rand;
             }
             total_biaya = (sum_gol_1 + sum_gol_2 + sum_gol_3) + parseInt(data[0].biaya_adm);
             $('[name="no_pelanggan"]').val(data[0].no_pelanggan);
-            $('[name="no_rekening"]').val(data[0].no_rekening);
             $('[name="nama_lengkap"]').val(data[0].nama_lengkap);
-            $('[name="pekerjaan"]').val(data[0].pekerjaan);
-            $('[name="alamat"]').val(data[0].alamat);
             $('[name="golongan"]').val(data[0].golongan);
             $('[name="bulan"]').val(data[0].bulan_rekening);
             $('[name="mawal"]').val(data[0].mawal);

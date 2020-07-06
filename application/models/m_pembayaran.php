@@ -15,7 +15,6 @@ class M_pembayaran extends CI_Model {
                 $hasil=array(
                     'idtarif' => $data->id_tarif,
                     'no_pelanggan' => $data->no_pelanggan,
-                    'no_rekening' => $data->no_rekening,
                     'nama_lengkap' => $data->nama_lengkap,
                     'pekerjaan' => $data->pekerjaan,
                     'alamat' => $data->alamat,

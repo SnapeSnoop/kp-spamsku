@@ -1,26 +1,26 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Excell extends MY_Controller{
-    
+class Excell extends MY_Controller
+{
+
     public function importExcel()
     {
         $this->load->library('excel');
         $fileName = $_FILES['file']['name'];
 
-        $config['upload_path'] = './upload/backup/'; 
+        $config['upload_path'] = './upload/backup/';
         $config['file_name'] = $fileName;
-        $config['allowed_types'] = 'xls|xlsx|csv'; 
-        $config['max_size'] = 10000; 
+        $config['allowed_types'] = 'xls|xlsx|csv';
+        $config['max_size'] = 10000;
 
-        $this->load->library('upload'); 
+        $this->load->library('upload');
         $this->upload->initialize($config);
 
         if (!$this->upload->do_upload('file')) {
             echo $this->upload->display_errors();
             exit();
         }
-
         $inputFileName = './upload/backup/' . $fileName;
 
         try {
@@ -35,19 +35,19 @@ class Excell extends MY_Controller{
         $highestRow = $sheet->getHighestRow();
         $highestColumn = $sheet->getHighestColumn();
 
-        for ($row = 2; $row <= $highestRow; $row++) {               
+        for ($row = 2; $row <= $highestRow; $row++) {
             $rowData = $sheet->rangeToArray(
                 'A' . $row . ':' . $highestColumn . $row,
                 NULL,
                 TRUE,
                 FALSE
-            );                                        
+            );
             $data = array(
                 "no_pelanggan" => $rowData[0][0],
                 "nama_lengkap" => $rowData[0][1],
                 "idgolongan" => $rowData[0][2]
             );
-            $insert = $this->db->insert("tb_pelanggan", $data);
+            $this->db->insert('tb_pelanggan', $data);
         }
         redirect('pelanggan');
     }

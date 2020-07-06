@@ -37,7 +37,16 @@ class M_konfirmasi extends CI_Model {
 		}else{
 			return false;
 		}
-	}
+    }
+    
+    function lunas($kode_bayar){
+        $data = array(
+            'status_bayar' => "Lunas"
+        );
+
+        $this->db->where('kode_bayar', $kode_bayar);
+        $this->db->update('tb_pembayaran', $data);
+    }
 }
 
 ?>

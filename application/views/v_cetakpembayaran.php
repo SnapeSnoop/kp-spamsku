@@ -89,23 +89,23 @@
           <h4 class="modal-title">Filter Data Cetak Pelanggan</h4>
         </div>
         <div class="modal-body">
-          <form role="form" action="<?= base_url('') ?>" enctype="multipart/form-data" method="POST">
+          <form target="_blank" role="form" action="<?= base_url('cetak/cetak_pdf') ?>" enctype="multipart/form-data" method="POST">
             <div class="box-body">
               <div class="form-group">
                 <label>Pilih Bulan : </label>
-                <select name="bulan_rekening" id="bulan_rekening">
-                  <option value="bulan_rekening">Pilih Bulan</option>
+                <select name="bulan_rekening" id="bulan_rekening" required>
+                  <option value="">Pilih Bulan</option>
                   <?php foreach ($bulan as $perbulan) : ?>
-                    <option value="<?= $perbulan->bulan_rekening ?>"><?= $perbulan->bulan_rekening ?></option>
+                    <option value="<?= $perbulan->bulan; ?>"><?= $perbulan->nama_bulan; ?></option>
                   <?php endforeach; ?>
                 </select>
               </div>
               <div class="form-group">
                 <label>Pilih Tahun : </label>
-                <select name="bulan_rekening" id="bulan_rekening">
-                  <option value="bulan_rekening">Pilih Tahun</option>
-                  <?php foreach ($bulan as $perbulan) : ?>
-                    <option value="<?= $perbulan->bulan_rekening ?>"><?= $perbulan->bulan_rekening ?></option>
+                <select name="tahun_rekening" id="tahun_rekening" required>
+                  <option value="">Pilih Tahun</option>
+                  <?php foreach ($tahun as $pertahun) : ?>
+                    <option value="<?= $pertahun->tahun; ?>"><?= $pertahun->tahun; ?></option>
                   <?php endforeach; ?>
                 </select>
               </div>
