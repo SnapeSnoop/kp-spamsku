@@ -26,7 +26,6 @@ class Kasir extends MY_Controller {
 			'nohp' => $this->input->post('nohp'),
 			'email' => $this->input->post('email'),
 			'username' => $this->input->post('username'),
-			'password' => $this->input->post('password'),
 			'root' => '2'
 		);
 
@@ -46,7 +45,6 @@ class Kasir extends MY_Controller {
 			'nohp' => $this->input->post('nohp'),
 			'email' => $this->input->post('email'),
 			'username' => $this->input->post('username'),
-			'password' => $this->input->post('password')
 		);
 
 		$where = array('idptgs' => $id);

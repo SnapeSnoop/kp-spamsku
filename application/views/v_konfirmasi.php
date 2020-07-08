@@ -22,8 +22,8 @@
              <tr>
                <th>No</th>
                <th>ID</th>
+               <th>Kode Bayar</th>
                <th>Nominal</th>
-               <th>Kode bayar</th>
                <th>Tanggal Transaksi</th>
                <th>Bukti Transfer</th>
                <th>Status</th>

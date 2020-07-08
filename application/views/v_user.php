@@ -2,12 +2,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Data Pengaduan
+            Data User Mobile
 
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Data Pengaduan</li>
+            <li class="active">Data Users</li>
         </ol>
     </section>
 
@@ -25,35 +25,29 @@
                         <tr>
                             <th>No</th>
                             <th>Nama</th>
-                            <th>Alamat</th>
-                            <th>Tanggal</th>
-                            <th>Keluhan</th>
-                            <th>Status Pengerjaan</th>
+                            <th>No telepon</th>
+                            <th>Email</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         $no = 1;
-                        foreach ($pengaduan as $data) {
+                        foreach ($user as $data) {
                         ?>
                             <tr>
                                 <td><?= $no++; ?></td>
                                 <td><?= $data->nama ?></td>
-                                <td><?= $data->alamat ?></td>
-                                <td><?= $data->tanggal ?></td>
-                                <td><?= $data->keluhan ?></td>
-                                <td><?= $data->status ?></td>
+                                <td><?= $data->notlp ?></td>
+                                <td><?= $data->email ?></td>
                                 <td>
                                     <a style="cursor: pointer;" onclick="select_data(
                                         '<?= $data->id ?>',
                                         '<?= $data->nama ?>',
-                                        '<?= $data->alamat ?>',
-                                        '<?= $data->tanggal ?>',
-                                        '<?= $data->keluhan ?>',
-                                        '<?= $data->status ?>'
+                                        '<?= $data->notlp ?>',
+                                        '<?= $data->email ?>'
                                         )">
-                                    <a href="<?php echo base_url() . 'pengaduan/action_hapus/' . $data->id ?>" onClick="return confirm('Apakah anda yakin menghapus data ini ?')"><i class="btn btn-danger fa fa-trash"></i></a>
+                                    <a href="<?php echo base_url() . 'user/action_hapus/' . $data->id ?>" onClick="return confirm('Apakah anda yakin menghapus data ini ?')"><i class="btn btn-danger fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -71,35 +65,22 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Tambah Data Pengaduan</h4>
+                <h4 class="modal-title">Tambah Data User Mobile</h4>
             </div>
             <div class="modal-body">
-                <form role="form" action="<?= base_url() . 'pengaduan/action_tambah' ?>" method="POST">
+                <form role="form" action="<?= base_url() . 'user/action_tambah' ?>" method="POST">
                     <div class="box-body">
                         <div class="form-group">
                             <label for="exampleInputPassword1">Nama</label>
                             <input type="text" class="form-control" id="exampleInputPassword1" name="nama" placeholder="Nama Lengkap">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Alamat</label>
-                            <textarea type="text" class="form-control" id="exampleInputPassword1" name="alamat" placeholder="Alamat"></textarea>
+                            <label for="exampleInputPassword1">No Telepon</label>
+                            <textarea type="text" class="form-control" id="exampleInputPassword1" name="notlp" placeholder="Notlp"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Tanggal</label>
-                            <input type="text" class="form-control datepicker" name="tanggal" placeholder="Tanggal">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Keluhan</label>
-                            <textarea type="text" class="form-control" id="exampleInputPassword1" name="keluhan" placeholder="Keluhan"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Status</label>
-                            <select name="status" id="status" class="form-control">
-                                <option value="">-- Pilih Status --</option>
-                                <option value="menunggu">Menunggu</option>
-                                <option value="dikerjakan">Dikerjakan</option>
-                                <option value="selesai">Selesai</option>
-                            </select>
+                            <label for="exampleInputPassword1">Email</label>
+                            <textarea type="text" class="form-control" id="exampleInputPassword1" name="email" placeholder="Email"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -121,35 +102,22 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Edit Data Pengaduan</h4>
+                <h4 class="modal-title">Edit Data User Mobile</h4>
             </div>
             <div class="modal-body">
-                <form role="form" action="<?= base_url() . 'pengaduan/action_edit' ?>" method="POST">
+                <form role="form" action="<?= base_url() . 'user/action_edit' ?>" method="POST">
                     <div class="box-body">
                         <div class="form-group">
                             <label for="exampleInputPassword1">Nama</label>
                             <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Lengkap">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Alamat</label>
-                            <textarea type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat"></textarea>
+                            <label for="exampleInputPassword1">No Telepon</label>
+                            <textarea type="text" class="form-control" id="notlp" name="notlp" placeholder="Notlp"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Tanggal</label>
-                            <input type="text" class="form-control datepicker" id="tanggal" name="tanggal" placeholder="Tanggal">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Keluhan</label>
-                            <textarea type="text" class="form-control" id="keluhan" name="keluhan" placeholder="Keluhan"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Status</label>
-                            <select name="status" id="status" class="form-control">
-                                <option value="">-- Pilih Status --</option>
-                                <option value="Menunggu">Menunggu</option>
-                                <option value="Dikerjakan">Dikerjakan</option>
-                                <option value="Selesai">Selesai</option>
-                            </select>
+                            <label for="exampleInputPassword1">Email</label>
+                            <textarea type="text" class="form-control" id="email" name="email" placeholder="Email"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -167,12 +135,10 @@
 
 
 <script type="text/javascript">
-    function select_data($id, $nama, $alamat, $tanggal, $keluhan, $status) {
+    function select_data($id, $nama, $notlp, $email) {
         $("#id").val($id);
         $("#nama").val($nama);
-        $("#alamat").val($alamat);
-        $("#tanggal").val($tanggal);
-        $("#keluhan").val($keluhan);
-        $("#status").val($status);
+        $("#notlp").val($notlp);
+        $("#email").val($email);
     }
 </script>

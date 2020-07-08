@@ -74,6 +74,12 @@ class Pembayaran extends MY_Controller {
 		$this->load->view('v_cetakstruck',$data);
 	}
 
+	function action_hapus($id){
+		$where=array('kode_bayar'=>$id);
+        $this->m_pembayaran->hapus($where);
+        //redirect
+        redirect('pembayaran/detail/');
+    }
+
 	
 }
-?>

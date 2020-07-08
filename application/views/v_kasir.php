@@ -32,7 +32,6 @@
                <th>No Hp</th>
                <th>Email</th>
                <th>Username</th>
-               <!-- <th>Password</th> -->
                <th>Action</th>
              </tr>
            </thead>
@@ -51,7 +50,6 @@
                  <td><?= $data->nohp ?></td>
                  <td><?= $data->email ?></td>
                  <td><?= $data->username ?></td>
-                 <!-- <td><?= $data->password ?></td> -->
                  <td>
                    <a style="cursor: pointer;" onclick="select_data(
                           '<?= $data->idptgs ?>',
@@ -63,7 +61,6 @@
                           '<?= $data->nohp ?>',
                           '<?= $data->email ?>',
                           '<?= $data->username ?>',
-                          // '<?= $data->password ?>'
                         )" data-toggle="modal" data-target="#modal-edit"><i class="btn btn-primary fa fa-pencil"></i></a>
                    <a href="<?php echo base_url() . 'kasir/action_hapus/' . $data->idptgs ?>" onClick="return confirm('Apakah anda yakin menghapus data ini ?')"><i class="btn btn-danger fa fa-trash"></i></a>
                  </td>
@@ -158,7 +155,7 @@
            <div class="box-body">
              <div class="form-group">
                <label for="exampleInputEmail1">Id Petugas</label>
-               <input type="text" class="form-control" id="idkasir" name="idptgs" placeholder="Id Petugas">
+               <input type="text" class="form-control" id="idptgs" name="idptgs" placeholder="Id Petugas" readonly>
              </div>
              <div class="form-group">
                <label for="exampleInputPassword1">Nama Lengkap</label>
@@ -195,10 +192,6 @@
                <label for="exampleInputPassword1">Username</label>
                <input type="text" class="form-control" id="username" name="username" placeholder="Username">
              </div>
-             <div class="form-group">
-               <label for="exampleInputPassword1">Password</label>
-               <input type="text" class="form-control" id="password" name="password" placeholder="Password">
-             </div>
            </div>
 
            <div class="modal-footer">
@@ -215,7 +208,7 @@
 
 
  <script type="text/javascript">
-   function select_data($idptgs, $nama_petugas, $tempat_lahir, $tanggal_lahir, $jk, $alamat, $nohp, $email,$username, $password) {
+   function select_data($idptgs, $nama_petugas, $tempat_lahir, $tanggal_lahir, $jk, $alamat, $nohp, $email,$username) {
      $("#idptgs").val($idptgs);
      $("#nama").val($nama_petugas);
      $("#tempat").val($tempat_lahir);
@@ -225,6 +218,5 @@
      $("#nohp").val($nohp);
      $("#email").val($email);
      $("#username").val($username);
-     $("#password").val($password);
    }
  </script>

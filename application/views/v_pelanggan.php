@@ -48,7 +48,6 @@
                           '<?= $data->no_pelanggan ?>',
                           '<?= $data->idgolongan ?>',
                           '<?= $data->nama_lengkap ?>',
-
                         )"><i data-toggle="modal" data-target="#modal-edit" class="btn btn-primary fa fa-pencil"></i></a>
                      <a href="<?php echo base_url() . 'pelanggan/action_hapus/' . $data->no_pelanggan ?>" onClick="return confirm('Apakah anda yakin menghapus data ini ?')"><i class="btn btn-danger fa fa-trash"></i></a>
                    </td><?php } ?>
@@ -73,7 +72,7 @@
            <div class="box-body">
              <div class="form-group">
                <label for="exampleInputEmail1">ID Pelanggan</label>
-               <input type="text" class="form-control" id="exampleInputEmail1" name="no_pelanggan" placeholder="Id pelanggan">
+               <input type="text" class="form-control" id="no_pelanggan" name="no_pelanggan" placeholder="Id pelanggan">
              </div>
              <div class="form-group">
                <label for="exampleInputEmail1">Golongan</label>
@@ -85,7 +84,7 @@
              </div>
              <div class="form-group">
                <label for="exampleInputPassword1">Nama Lengkap</label>
-               <input type="text" class="form-control" id="exampleInputPassword1" name="nama" placeholder="Nama Lengkap">
+               <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" placeholder="Nama Lengkap">
              </div>
            </div>
 
@@ -178,7 +177,7 @@
  <script type="text/javascript">
    function select_data($no_pelanggan, $idgolongan, $nama_lengkap) {
      $("#nopelanggan").val($no_pelanggan);
-     $("#idgolognan").val($no_rekening);
-     $("#nama").val($nama_lengkap);
+     $("#idgolognan").val($idgolongan);
+     $("#nama_lengkap").val($nama_lengkap);
    }
  </script>

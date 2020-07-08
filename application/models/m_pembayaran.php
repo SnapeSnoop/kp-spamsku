@@ -48,7 +48,7 @@ class M_pembayaran extends CI_Model {
     }
 
     function get_detail($where){
-        $data = $this->db->select('tb_pembayaran.kode_bayar, tb_pembayaran.bulan_bayar, tb_pembayaran.status_bayar, tb_pembayaran.no_pelanggan, tb_pembayaran.total_bayar, tb_pelanggan.nama_lengkap ')
+        $data = $this->db->select('tb_pembayaran.kode_bayar, tb_pembayaran.bulan_bayar, tb_pembayaran.status_bayar, tb_pembayaran.no_pelanggan, tb_pembayaran.total_bayar, tb_pelanggan.nama_lengkap, tb_pembayaran.jumlah_bayar')
                         ->from('tb_pembayaran')
                         ->join('tb_pelanggan','tb_pembayaran.no_pelanggan=tb_pelanggan.no_pelanggan')
                         ->where('tb_pembayaran.no_pelanggan',$where)
@@ -102,6 +102,10 @@ class M_pembayaran extends CI_Model {
     function count_pembayaran(){
         $query = $this->db->get('tb_pembayaran');
         return $query->num_rows();
+    }
+    
+    function hapus($where){
+		$query = $this->db->delete('tb_pembayaran',$where);
 	}
 
 }

@@ -19,7 +19,7 @@ class Pelanggan extends MY_Controller {
 		$data = array(
 			'no_pelanggan' => $this->input->post('no_pelanggan'),
 			'idgolongan' => $this->input->post('idgolongan'),
-			'nama_lengkap' => $this->input->post('nama'),
+			'nama_lengkap' => $this->input->post('nama_lengkap'),
 		);
 
 		$this->m_pelanggan->tambah($data);

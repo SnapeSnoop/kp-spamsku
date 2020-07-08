@@ -15,41 +15,41 @@ class Pengaduan extends MY_Controller {
 		$this->render_page('v_pengaduan',$data);
 	}
 
-	// function action_tambah(){
-	// 	$data = array(
-	// 		'nama' => $this->input->post('nama'),
-	// 		'alamat' => $this->input->post('alamat'),
-	// 		'tanggal' => $this->input->post('tanggal'),
-	// 		'keluhan' => $this->input->post('keluhan'),
-	// 		'status' => $this->input->post('status'),
-	// 		'root' => '3'
-	// 	);
+	function action_tambah(){
+		$data = array(
+			'nama' => $this->input->post('nama'),
+			'alamat' => $this->input->post('alamat'),
+			'tanggal' => $this->input->post('tanggal'),
+			'keluhan' => $this->input->post('keluhan'),
+			'status' => $this->input->post('status'),
+			'root' => '3'
+		);
 
-	// 	$this->m_pengaduan-->tambah($data);
-	// 	redirect('pengaduan');
-	// }
+		$this->m_pengaduan->tambah($data);
+		redirect('pengaduan');
+	}
 
-	// function action_edit(){
-	// 	$id = $this->input->post('id');
-	// 	$data = array(
-	// 		'nama' => $this->input->post('nama'),
-	// 		'alamat' => $this->input->post('alamat'),
-	// 		'tanggal' => $this->input->post('tanggal'),
-	// 		'keluhan' => $this->input->post('keluhan'),
-	// 		'status' => $this->input->post('status')
-	// 	);
+	function action_edit(){
+		$id = $this->input->post('id');
+		$data = array(
+			'nama' => $this->input->post('nama'),
+			'alamat' => $this->input->post('alamat'),
+			'tanggal' => $this->input->post('tanggal'),
+			'keluhan' => $this->input->post('keluhan'),
+			'status' => $this->input->post('status')
+		);
 
-	// 	$where = array('id'=> $id);
-	// 	$this->m_pengaduan-->edit($data,$where);
-	// 	redirect('pelanggan');
-	// }
+		$where = array('id'=> $id);
+		$this->m_pengaduan->edit($data,$where);
+		redirect('pengaduan');
+	}
 
-	// function action_hapus($id){
-	// 	$where=array('id'=>$id);
-    //     $this->m_pengaduan-->hapus($where);
-    //     //redirect
-    //     redirect('pengaduan');
-    // }
+	function action_hapus($id){
+		$where=array('id'=>$id);
+        $this->m_pengaduan->hapus($where);
+        //redirect
+        redirect('pengaduan');
+    }
 }
 
 ?>
