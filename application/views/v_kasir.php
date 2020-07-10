@@ -31,7 +31,6 @@
                <th>Alamat</th>
                <th>No Hp</th>
                <th>Email</th>
-               <th>Username</th>
                <th>Action</th>
              </tr>
            </thead>
@@ -49,7 +48,6 @@
                  <td><?= $data->alamat ?></td>
                  <td><?= $data->nohp ?></td>
                  <td><?= $data->email ?></td>
-                 <td><?= $data->username ?></td>
                  <td>
                    <a style="cursor: pointer;" onclick="select_data(
                           '<?= $data->idptgs ?>',
@@ -60,7 +58,7 @@
                           '<?= $data->alamat ?>',
                           '<?= $data->nohp ?>',
                           '<?= $data->email ?>',
-                          '<?= $data->username ?>',
+                          '<?= $data->password ?>'
                         )" data-toggle="modal" data-target="#modal-edit"><i class="btn btn-primary fa fa-pencil"></i></a>
                    <a href="<?php echo base_url() . 'kasir/action_hapus/' . $data->idptgs ?>" onClick="return confirm('Apakah anda yakin menghapus data ini ?')"><i class="btn btn-danger fa fa-trash"></i></a>
                  </td>
@@ -119,10 +117,6 @@
              <div class="form-group">
                <label for="exampleInputPassword1">Email</label>
                <input type="email" class="form-control" id="exampleInputPassword1" name="email" placeholder="Email">
-             </div>
-             <div class="form-group">
-               <label for="exampleInputPassword1">Username</label>
-               <input type="text" class="form-control" id="exampleInputPassword1" name="username" placeholder="Username">
              </div>
              <div class="form-group">
                <label for="exampleInputPassword1">Password</label>
@@ -189,8 +183,8 @@
                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
              </div>
              <div class="form-group">
-               <label for="exampleInputPassword1">Username</label>
-               <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+               <label for="exampleInputPassword1">Password</label>
+               <input type="text" class="form-control" id="password" name="password" placeholder="Password">
              </div>
            </div>
 
@@ -208,7 +202,7 @@
 
 
  <script type="text/javascript">
-   function select_data($idptgs, $nama_petugas, $tempat_lahir, $tanggal_lahir, $jk, $alamat, $nohp, $email,$username) {
+   function select_data($idptgs, $nama_petugas, $tempat_lahir, $tanggal_lahir, $jk, $alamat, $nohp, $email, $password) {
      $("#idptgs").val($idptgs);
      $("#nama").val($nama_petugas);
      $("#tempat").val($tempat_lahir);
@@ -217,6 +211,6 @@
      $("#alamat").val($alamat);
      $("#nohp").val($nohp);
      $("#email").val($email);
-     $("#username").val($username);
+     $("#password").val($password);
    }
  </script>

@@ -77,8 +77,7 @@ class Pembayaran extends MY_Controller {
 	function action_hapus($id){
 		$where=array('kode_bayar'=>$id);
         $this->m_pembayaran->hapus($where);
-        //redirect
-        redirect('pembayaran/detail/');
+        redirect('pembayaran/detail/no_pelanggan');
     }
 
 	

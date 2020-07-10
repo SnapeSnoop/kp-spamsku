@@ -28,7 +28,6 @@
                <th>Gol1</th>
                <th>Gol2</th>
                <th>Gol3</th>
-               <th>Biaya Air</th>
                <th>Biaya Beban</th>
                <th>Action</th>
              </tr>
@@ -44,7 +43,6 @@
                  <td><?= $data->gol1 ?></td>
                  <td><?= $data->gol2 ?></td>
                  <td><?= $data->gol3 ?></td>
-                 <td><?= $data->biaya_air ?></td>
                  <td><?= $data->biaya_adm ?></td>
                  <td>
                    <a style="cursor: pointer;" onclick="select_data(
@@ -53,7 +51,6 @@
                           '<?= $data->gol1 ?>',
                           '<?= $data->gol2 ?>',
                           '<?= $data->gol3 ?>',
-                          '<?= $data->biaya_air ?>',
                           '<?= $data->biaya_adm ?>'
                         )"><i data-toggle="modal" data-target="#modal-edit" class="btn btn-primary fa fa-pencil"></i></a>
                    <a href="<?php echo base_url() . 'golongan/action_hapus/' . $data->idgolongan ?>" onClick="return confirm('Apakah anda yakin menghapus data ini ?')"><i class="btn btn-danger fa fa-trash"></i></a>
@@ -96,13 +93,8 @@
                <input type="text" class="form-control" id="exampleInputEmail1" name="gol2" placeholder="Golongan 3">
              </div>
              <div class="form-group">
-               <label for="exampleInputPassword1">Biaya Air</label>
-               <input type="text" class="form-control" id="exampleInputPassword1" name="biaya_air" placeholder="Biaya ADM">
-             </div>
-           </div>
-             <div class="form-group">
                <label for="exampleInputPassword1">Biaya Beban</label>
-               <input type="text" class="form-control" id="exampleInputPassword1" name="biayaadm" placeholder="Biaya ADM">
+               <input type="text" class="form-control" id="exampleInputPassword1" name="biayaadm" placeholder="Biaya Beban">
              </div>
            </div>
 
@@ -147,12 +139,8 @@
                <input type="text" class="form-control" id="gol3" name="gol3" placeholder="Golongan 3">
              </div>
              <div class="form-group">
-               <label for="exampleInputPassword1">Biaya Air</label>
-               <input type="text" class="form-control" id="exampleInputPassword1" name="biaya_air" placeholder="Biaya ADM">
-             </div>
-             <div class="form-group">
                <label for="exampleInputPassword1">Biaya Beban</label>
-               <input type="text" class="form-control" id="biayaadm" name="biayaadm" placeholder="Biaya ADM">
+               <input type="text" class="form-control" id="biayaadm" name="biayaadm" placeholder="Biaya Beban">
              </div>
            </div>
 

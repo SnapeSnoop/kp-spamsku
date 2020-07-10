@@ -2,11 +2,11 @@
    <!-- Content Header (Page header) -->
    <section class="content-header">
      <h1>
-       Data Tarif
+       Data Baca Meter
      </h1>
      <ol class="breadcrumb">
        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-       <li class="active">Tarif</li>
+       <li class="active">Baca Meter</li>
      </ol>
    </section>
 
@@ -28,7 +28,8 @@
                <th>Golongan</th>
                <th>Meter Awal</th>
                <th>Meter Akhir</th>
-               <th> Total Pemakaian</th>
+               <th>Total Pemakaian</th>
+               <th>Action</th>
              </tr>
            </thead>
            <tbody>
@@ -44,6 +45,13 @@
                  <td><?= $data->mawal ?></td>
                  <td><?= $data->makhir ?></td>
                  <td><?= $data->pemakaian ?></td>
+                 <?php if ($this->session->userdata('akses') == "1") { ?>
+                   <td>
+                     <a style="cursor: pointer;" onclick="select_data(
+                          '<?= $data->pemakaian ?>',
+                        )">
+                       <a href="<?php echo base_url() . 'tarif/action_hapus/' . $data->pemakaian?>" onClick="return confirm('Apakah anda yakin menghapus data ini ?')"><i class="btn btn-danger fa fa-trash"></i></a>
+                   </td><?php } ?>
                </tr>
              <?php } ?>
            </tbody>
@@ -102,7 +110,7 @@
                  <div class="form-group">
                    <label for="exampleInputEmail1" class="col-sm-4 control-label">Menteran Awal</label>
                    <div class="col-sm-8">
-                     <input type="text" class="form-control" id="mawal2" name="mawal" placeholder="Meteran Awal">
+                     <input type="text" class="form-control" id="mawal2" name="mawal" placeholder="Meteran Awal" readonly>
                    </div>
                  </div>
                  <div class="form-group">

@@ -40,7 +40,10 @@ class M_konfirmasi extends CI_Model {
     }
     
     function lunas($kode_bayar){
+        $nominal = $this->input->post('nominal');
+
         $data = array(
+            'jumlah_bayar' => $nominal,
             'status_bayar' => "Lunas"
         );
 

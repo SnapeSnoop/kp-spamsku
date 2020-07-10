@@ -72,5 +72,9 @@ class M_tarif extends CI_Model {
         return $hasil;
     }
 
+    function hapus($where){
+		$query = $this->db->delete('tb_tarif',$where);
+	}
+
 }
 ?>

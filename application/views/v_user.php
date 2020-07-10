@@ -2,7 +2,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Data User Mobile
+            Data User Aplikasi
 
         </h1>
         <ol class="breadcrumb">

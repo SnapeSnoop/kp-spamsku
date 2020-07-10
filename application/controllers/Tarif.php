@@ -63,6 +63,13 @@ class Tarif extends MY_Controller {
 		$this->m_tarif->tambah($data);
 		redirect('tarif');
 	}
+
+	function action_hapus($id){
+		$where=array('pemakaian'=>$id);
+        $this->m_tarif->hapus($where);
+        //redirect
+        redirect('tarif');
+    }
 }
 
 ?>
