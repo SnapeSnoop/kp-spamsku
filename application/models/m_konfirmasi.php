@@ -36,7 +36,7 @@ class M_konfirmasi extends CI_Model {
 			return true;
 		}else{
 			return false;
-		}
+        }
     }
     
     function lunas($kode_bayar){
@@ -51,5 +51,3 @@ class M_konfirmasi extends CI_Model {
         $this->db->update('tb_pembayaran', $data);
     }
 }
-
-?>

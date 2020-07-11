@@ -47,6 +47,23 @@
 
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
+            <li class="dropdown notifications-menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-bell"></i>
+                <span class="label label-warning"></span>
+              </a>
+              <ul class="dropdown-menu">
+          
+                <li>
+                  <!-- inner menu: contains the actual data -->
+                  <ul class="menu">
+                   
+                  </ul>
+                </li>
+                
+              </ul>
+            </li>
+        
             <!-- User Account: style can be found in dropdown.less -->
             <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -79,3 +96,4 @@
         </div>
       </nav>
     </header>
+

@@ -1,37 +1,41 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Konfirmasi extends MY_Controller {
+class Konfirmasi extends MY_Controller
+{
 
-	function __construct(){
+	function __construct()
+	{
 		parent::__construct();
 		$this->load->model('m_konfirmasi');
 		$this->load->model('m_pelanggan');
 	}
 
-	function index(){
+	function index()
+	{
 		$data = array(
 			'konfirmasi' => $this->m_konfirmasi->get_konfirmasi(),
 			'pelanggan' => $this->m_pelanggan->get_pelanggan(),
 		);
-		$this->render_page('v_konfirmasi',$data);
+		$this->render_page('v_konfirmasi', $data);
 	}
 
-	function action_tambah(){
+	function action_tambah()
+	{
 
 		$config['upload_path']          = './upload/bukti/';
-        $config['allowed_types']        = 'jpeg|jpg|png|pdf';
-        $config['max_size']             = 1000000000;
-        $config['max_width']            = 10240;
+		$config['allowed_types']        = 'jpeg|jpg|png|pdf';
+		$config['max_size']             = 1000000000;
+		$config['max_width']            = 10240;
 		$config['max_height']           = 7680;
-		
+
 		$this->load->library('upload', $config);
 
-		if(!$this->upload->do_upload('bukti_tf')){
+		if (!$this->upload->do_upload('bukti_tf')) {
 			echo '<script type="text/javascript">alert("Gambar Kosong atau Ukuran Gambar Terlalu Besar")</script>';
 			redirect('konfirmasi', 'refresh');
-		}else{   
-			
+		} else {
+
 			$data = array(
 				'id_pelanggan' => $this->input->post('id_pelanggan'),
 				'kode_bayar' => $this->input->post('kode_bayar'),
@@ -40,33 +44,36 @@ class Konfirmasi extends MY_Controller {
 				'bukti_tf' => $this->upload->data('file_name'),
 				'status' => $this->input->post('status')
 			);
-			
+
 			$this->m_konfirmasi->tambah($data);
 
 			$status = $this->input->post('status');
 
-			if($status=="1"){
+			if ($status == "1") {
 				$kode_bayar = $this->input->post('kode_bayar');
 				$this->m_konfirmasi->lunas($kode_bayar);
 			}
 
 			redirect('konfirmasi');
 		}
+
 	}
 
-	public function accept($id){
+	public function accept($id)
+	{
 		$this->m_konfirmasi->accept($id);
 		redirect('konfirmasi');
 	}
 
-	public function reject($id){
+	public function reject($id)
+	{
 		$this->m_konfirmasi->reject($id);
 		redirect('konfirmasi');
 	}
 
-	public function delete($id){
+	public function delete($id)
+	{
 		$this->m_konfirmasi->delete($id);
 		redirect('konfirmasi');
 	}
-
 }

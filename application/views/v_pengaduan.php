@@ -53,7 +53,7 @@
                                         '<?= $data->keluhan ?>',
                                         '<?= $data->status ?>'
                                         )">
-                                    <a href="<?php echo base_url() . 'pengaduan/action_hapus/' . $data->id ?>" onClick="return confirm('Apakah anda yakin menghapus data ini ?')"><i class="btn btn-danger fa fa-trash"></i></a>
+                                        <a href="<?php echo base_url() . 'pengaduan/action_hapus/' . $data->id ?>" onClick="return confirm('Apakah anda yakin menghapus data ini ?')"><i class="btn btn-danger fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -163,8 +163,6 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
-
-
 
 <script type="text/javascript">
     function select_data($id, $nama, $alamat, $tanggal, $keluhan, $status) {
