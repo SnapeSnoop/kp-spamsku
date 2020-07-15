@@ -37,7 +37,7 @@
            <tbody>
              <?php
               $no = 1;
-              foreach ($kasir as $data) {
+              foreach ($petugas as $data) {
               ?>
                <tr>
                  <td><?= $no++; ?></td>
@@ -60,7 +60,7 @@
                           '<?= $data->email ?>',
                           '<?= $data->password ?>'
                         )" data-toggle="modal" data-target="#modal-edit"><i class="btn btn-primary fa fa-pencil"></i></a>
-                   <a href="<?php echo base_url() . 'kasir/action_hapus/' . $data->idptgs ?>" onClick="return confirm('Apakah anda yakin menghapus data ini ?')"><i class="btn btn-danger fa fa-trash"></i></a>
+                   <a href="<?php echo base_url() . 'petugas/action_hapus/' . $data->idptgs ?>" onClick="return confirm('Apakah anda yakin menghapus data ini ?')"><i class="btn btn-danger fa fa-trash"></i></a>
                  </td>
                </tr>
              <?php } ?>

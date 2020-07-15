@@ -1,15 +1,18 @@
 <?php
 
-class M_konfirmasi extends CI_Model {
+class M_konfirmasi extends CI_Model
+{
 
-    function get_konfirmasi(){
-        $data= $this->db->select('id, id_pelanggan, kode_bayar, nominal, tanggal_transaksi, bukti_tf, status')
-                ->from('tb_konfirmasi')
-                ->get();
+    function get_konfirmasi()
+    {
+        $data = $this->db->select('id, id_pelanggan, kode_bayar, nominal, tanggal_transaksi, bukti_tf, status')
+            ->from('tb_konfirmasi')
+            ->get();
         return $data->result();
     }
 
-    function accept($id){
+    function accept($id)
+    {
         $data = array(
             'status' => 1,
         );
@@ -17,7 +20,8 @@ class M_konfirmasi extends CI_Model {
         $this->db->update('tb_konfirmasi', $data);
     }
 
-    function reject($id){
+    function reject($id)
+    {
         $data = array(
             'status' => 0,
         );
@@ -25,21 +29,24 @@ class M_konfirmasi extends CI_Model {
         $this->db->update('tb_konfirmasi', $data);
     }
 
-    function delete($id){
+    function delete($id)
+    {
         $this->db->where('id', $id);
         $this->db->delete('tb_konfirmasi');
     }
 
-    function tambah($data){
-		$query = $this->db->insert('tb_konfirmasi',$data);
-		if ($query) {
-			return true;
-		}else{
-			return false;
+    function tambah($data)
+    {
+        $query = $this->db->insert('tb_konfirmasi', $data);
+        if ($query) {
+            return true;
+        } else {
+            return false;
         }
     }
-    
-    function lunas($kode_bayar){
+
+    function lunas($kode_bayar)
+    {
         $nominal = $this->input->post('nominal');
 
         $data = array(

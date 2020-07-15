@@ -1,18 +1,18 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Kasir extends MY_Controller {
+class Petugas extends MY_Controller {
 
 	function __construct(){
 		parent::__construct();
-		$this->load->model('m_kasir');
+		$this->load->model('m_petugas');
 	}
 
 	function index(){
 		$data = array(
-			'kasir' => $this->m_kasir->get_kasir(),
+			'petugas' => $this->m_petugas->get_petugas(),
 		);
-		$this->render_page('v_kasir',$data);
+		$this->render_page('v_petugas',$data);
 	}
 
 	function action_tambah(){
@@ -29,8 +29,8 @@ class Kasir extends MY_Controller {
 			'root' => '2'
 		);
 
-		$this->m_kasir->tambah($data);
-		redirect('kasir');
+		$this->m_petugas->tambah($data);
+		redirect('petugas');
 	}
 
 	function action_edit(){
@@ -48,15 +48,15 @@ class Kasir extends MY_Controller {
 		);
 
 		$where = array('idptgs' => $id);
-		$this->m_kasir->edit($where,$data);
-		redirect('kasir');
+		$this->m_petugas->edit($where,$data);
+		redirect('petugas');
 	}
 
 	function action_hapus($id){
 		$where=array('idptgs'=>$id);
-        $this->m_kasir->hapus($where);
+        $this->m_petugas->hapus($where);
         //redirect
-        redirect('kasir');
+        redirect('petugas');
     }
 
 	
