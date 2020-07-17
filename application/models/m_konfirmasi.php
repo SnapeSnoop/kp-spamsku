@@ -23,7 +23,7 @@ class M_konfirmasi extends CI_Model
     function reject($id)
     {
         $data = array(
-            'status' => 0,
+            'status' => 2,
         );
         $this->db->where('id', $id);
         $this->db->update('tb_konfirmasi', $data);

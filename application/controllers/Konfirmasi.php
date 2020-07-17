@@ -42,7 +42,7 @@ class Konfirmasi extends MY_Controller
 				'nominal' => $this->input->post('nominal'),
 				'tanggal_transaksi' => $this->input->post('tanggal_transaksi'),
 				'bukti_tf' => $this->upload->data('file_name'),
-				'status' => $this->input->post('status')
+				'status' => "0"
 			);
 
 			$this->m_konfirmasi->tambah($data);

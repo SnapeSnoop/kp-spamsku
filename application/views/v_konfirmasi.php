@@ -42,11 +42,11 @@
                 <td><?= $data->nominal ?></td>
                 <td><?= $data->tanggal_transaksi ?></td>
                 <td><a target="_blank" href="<?= base_url('upload/bukti/' . $data->bukti_tf) ?>">Gambar</a></td>
-                <td><?= $status = $data->status == 1 ? 'Terverivikasi' :  'Belum verifikasi' ?></td>
+                <td><?= $status = $data->status == 0 ? 'Terverivikasi' :  'Belum verifikasi' ?></td>
                 <?php if ($data->status == 0) : ?>
                   <td>
                     <a href="<?= base_url('konfirmasi/accept/' . $data->id) ?>" class="btn btn-xs btn-primary">Verifikasi</a>
-                    <!-- <a href="<?= base_url('konfirmasi/reject/' . $data->id) ?>" class="btn btn-xs btn-warning">Tolak</a> -->
+                    <a href="<?= base_url('konfirmasi/reject/' . $data->id) ?>" class="btn btn-xs btn-warning">Tolak</a>
                     <a href="<?= base_url('konfirmasi/delete/' . $data->id) ?>" class="btn btn-xs btn-danger">Hapus</a>
                   </td>
                 <?php else : ?>
@@ -99,13 +99,13 @@
               <label>Bukti Transfer</label>
               <input type="file" name="bukti_tf" class="form-control">
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label>Status</label>
               <select name="status" class="form-control">
                 <option value="1">Verifikasi</option>
                 <option value="0">Tolak</option>
               </select>
-            </div>
+            </div> -->
           </div>
 
           <div class="modal-footer">

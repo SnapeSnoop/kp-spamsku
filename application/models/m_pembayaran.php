@@ -85,19 +85,6 @@ class M_pembayaran extends CI_Model {
 
         return $data->result();
     }
-
-    function tampil_payment()
-	{
-		$query =  $this->db->query('SELECT * FROM reservation a
-								   JOIN users b on a.customer_id = b.id');
-		return $query->result();
-    }
-    
-    function confirm_payment($reservation_code, $data)
-	{
-		$this->db->where('reservation_code', $reservation_code);
-		$this->db->update('reservation', $data);
-    }
     
     function count_pembayaran(){
         $query = $this->db->get('tb_pembayaran');
