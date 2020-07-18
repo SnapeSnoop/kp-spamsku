@@ -1,6 +1,6 @@
 <?php
 
-class M_pembayaran extends CI_Model {
+class m_pembayaran extends CI_Model {
 
 	function pelanggan_id($id,$sta){
         $sta ='Belum bayar';

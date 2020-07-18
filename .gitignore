@@ -21,7 +21,7 @@ application/logs/*
 !application/logs/.htaccess
 /vendor/
 
-/application/config/database.php
+!application/config/database.php
 /upload/
 
 ### CodeIgniter Patch ###

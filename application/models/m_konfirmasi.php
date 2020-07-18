@@ -1,6 +1,6 @@
 <?php
 
-class M_konfirmasi extends CI_Model
+class m_konfirmasi extends CI_Model
 {
 
     function get_konfirmasi()

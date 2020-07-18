@@ -2,7 +2,7 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class M_cetak extends CI_Model
+class m_cetak extends CI_Model
 {
 
        function get_cetak()

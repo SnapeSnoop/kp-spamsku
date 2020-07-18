@@ -1,6 +1,6 @@
 <?php
 
-class M_pengaduan extends CI_Model
+class m_pengaduan extends CI_Model
 {
 
 	function get_pengaduan()

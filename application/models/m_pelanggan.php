@@ -1,6 +1,6 @@
 <?php
 
-class M_pelanggan extends CI_Model {
+class m_pelanggan extends CI_Model {
 
 	function get_pelanggan(){
 		$data = $this->db->select('*')
