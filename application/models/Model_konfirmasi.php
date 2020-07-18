@@ -6,8 +6,9 @@ class Model_konfirmasi extends CI_Model
     function get_konfirmasi()
     {
         $data = $this->db->select('id, id_pelanggan, kode_bayar, nominal, tanggal_transaksi, bukti_tf, status')
-            ->from('tb_konfirmasi')
+            ->from('tb_konfirmasi')->where('status',0)
             ->get();
+        //$this->db->where('status',1);    
         return $data->result();
     }
 
@@ -16,7 +17,7 @@ class Model_konfirmasi extends CI_Model
         $data = array(
             'status' => 1,
         );
-        $this->db->where('id', $id);
+        $this->db->where('kode_bayar', $id);
         $this->db->update('tb_konfirmasi', $data);
     }
 
@@ -45,9 +46,9 @@ class Model_konfirmasi extends CI_Model
         }
     }
 
-    function lunas($kode_bayar)
+    function lunas($kode_bayar, $nominal)
     {
-        $nominal = $this->input->post('nominal');
+        //$nominal = $this->input->post('nominal');
 
         $data = array(
             'jumlah_bayar' => $nominal,

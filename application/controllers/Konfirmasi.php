@@ -9,6 +9,8 @@ class Konfirmasi extends MY_Controller
 		parent::__construct();
 		$this->load->model('Model_konfirmasi','m_konfirmasi');
 		$this->load->model('Model_pelanggan','m_pelanggan');
+		$this->load->model('Model_pembayaran','m_pembayaran');
+
 	}
 
 	function index()
@@ -60,8 +62,10 @@ class Konfirmasi extends MY_Controller
 	}
 
 	public function accept($id)
-	{
+	{	
+		$data['nominal'] = $this->m_pembayaran->get_lihat($id);
 		$this->m_konfirmasi->accept($id);
+		$this->m_konfirmasi->lunas($id, $data['nominal'][0]->total_bayar);
 		redirect('konfirmasi');
 	}
 

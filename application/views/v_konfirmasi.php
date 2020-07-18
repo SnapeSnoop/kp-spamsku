@@ -42,10 +42,10 @@
                 <td><?= $data->nominal ?></td>
                 <td><?= $data->tanggal_transaksi ?></td>
                 <td><a target="_blank" href="<?= base_url('upload/bukti/' . $data->bukti_tf) ?>">Gambar</a></td>
-                <td><?= $status = $data->status == 0 ? 'Terverivikasi' :  'Belum verifikasi' ?></td>
+                <td><?= $status = $data->status == 0 ? 'Belum verifikasi' :  'Terverifikasi' ?></td>
                 <?php if ($data->status == 0) : ?>
                   <td>
-                    <a href="<?= base_url('konfirmasi/accept/' . $data->id) ?>" class="btn btn-xs btn-primary">Verifikasi</a>
+                    <a href="<?= base_url('konfirmasi/accept/' . $data->kode_bayar) ?>" class="btn btn-xs btn-primary">Verifikasi</a>
                     <a href="<?= base_url('konfirmasi/reject/' . $data->id) ?>" class="btn btn-xs btn-warning">Tolak</a>
                     <a href="<?= base_url('konfirmasi/delete/' . $data->id) ?>" class="btn btn-xs btn-danger">Hapus</a>
                   </td>

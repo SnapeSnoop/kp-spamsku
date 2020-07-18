@@ -5,10 +5,11 @@ class Pembayaran extends MY_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('Model_pembayaran','m_pembayaran');
+		$this->load->model('Model_tarif','m_tarif');
 	}
 
 	function index(){
-		$this->load->model('m_tarif');
+		//$this->load->model('m_tarif');
 		$data = array(
 			'tarif' => $this->m_tarif->get_tarif(),
 		);
@@ -24,7 +25,7 @@ class Pembayaran extends MY_Controller {
 	}
 
 	function get_transaction(){
-		$this->load->model('m_tarif');
+		//$this->load->model('m_tarif');
 		$id = $this->input->post('id_tarif');
 		$sta = 'Belum bayar';
 		$data = $this->m_tarif->get_tarif_transaction($id,$sta);
