@@ -6,7 +6,7 @@ class Utama extends MY_Controller {
 	function index(){
 
 		$this->load->model('Model_pelanggan','m_pelanggan');
-		$this->load->model('Model_tarig','m_tarif');
+		$this->load->model('Model_tarif','m_tarif');
 		$this->load->model('Model_pembayaran','m_pembayaran');
 		$this->load->model('Model_pengaduan','m_pengaduan');
 
