@@ -7,7 +7,7 @@ class Cetak extends MY_Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model('m_cetak');
+		$this->load->model('Model_cetak','m_cetak');
 	}
 
 	function index()

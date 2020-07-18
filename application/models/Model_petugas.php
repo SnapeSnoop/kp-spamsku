@@ -1,7 +1,7 @@
 <?php
 	defined('BASEPATH') OR exit('No direct script access allowed');
 
-class m_petugas extends CI_Model {
+class Model_petugas extends CI_Model {
 
 	function get_petugas(){
 		$query = $this->db->select('*')

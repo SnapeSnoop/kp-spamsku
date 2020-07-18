@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class m_golongan extends CI_Model {
+class Model_golongan extends CI_Model {
 
 	function get_golongan(){
 		$data = $this->db->select('*')

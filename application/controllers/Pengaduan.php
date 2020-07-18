@@ -7,7 +7,7 @@ class Pengaduan extends MY_Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model('m_pengaduan');
+		$this->load->model('Model_pengaduan','m_pengaduan');
 	}
 
 	function index()

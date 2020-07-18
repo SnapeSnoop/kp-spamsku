@@ -4,7 +4,7 @@ class Pembayaran extends MY_Controller {
 
 	function __construct(){
 		parent::__construct();
-		$this->load->model('m_pembayaran');
+		$this->load->model('Model_pembayaran','m_pembayaran');
 	}
 
 	function index(){

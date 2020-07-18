@@ -5,8 +5,8 @@ class Tarif extends MY_Controller {
 
 	function __construct(){
 		parent::__construct();
-		$this->load->model('m_tarif');
-		$this->load->model('m_pelanggan');
+		$this->load->model('Model_tarif','m_tarif');
+		$this->load->model('Model_pelanggan','m_pelanggan');
 	}
 
 	function index(){

@@ -5,7 +5,7 @@ class Petugas extends MY_Controller {
 
 	function __construct(){
 		parent::__construct();
-		$this->load->model('m_petugas');
+		$this->load->model('Model_petugas','m_petugas');
 	}
 
 	function index(){

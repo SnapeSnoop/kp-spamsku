@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class m_tarif extends CI_Model {
+class Model_tarif extends CI_Model {
 
 	function rekening_id($id){
 		$query = $this->db->query("SELECT * from tb_pelanggan p left join tb_golongan g on p.idgolongan=g.idgolongan where p.no_pelanggan='$id'");

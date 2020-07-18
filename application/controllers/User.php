@@ -5,7 +5,7 @@ class User extends MY_Controller {
 
 	function __construct(){
 		parent::__construct();
-		$this->load->model('m_user');
+		$this->load->model('Model_user','m_user');
 	}
 
 	function index(){

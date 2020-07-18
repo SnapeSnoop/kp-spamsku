@@ -7,8 +7,8 @@ class Konfirmasi extends MY_Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model('m_konfirmasi');
-		$this->load->model('m_pelanggan');
+		$this->load->model('Model_konfirmasi','m_konfirmasi');
+		$this->load->model('Model_pelanggan','m_pelanggan');
 	}
 
 	function index()
