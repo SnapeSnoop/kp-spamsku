@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class M_login extends CI_Model {
+class Model_login extends CI_Model {
 
 	//testss
 
