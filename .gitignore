@@ -22,7 +22,7 @@ application/logs/*
 /vendor/
 
 application/config/database.php
-upload
+/upload/
 
 ### CodeIgniter Patch ###
 
