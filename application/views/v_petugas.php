@@ -81,12 +81,8 @@
          <h4 class="modal-title">Tambah Data Petugas</h4>
        </div>
        <div class="modal-body">
-         <form role="form" action="<?= base_url() . 'kasir/action_tambah' ?>" method="POST">
+         <form role="form" action="<?= base_url() . 'petugas/action_tambah' ?>" method="POST">
            <div class="box-body">
-             <div class="form-group">
-               <label for="exampleInputEmail1">Id Petugas</label>
-               <input type="text" class="form-control" id="exampleInputEmail1" name="idptgs" placeholder="Id Petugas">
-             </div>
              <div class="form-group">
                <label for="exampleInputPassword1">Nama Lengkap</label>
                <input type="text" class="form-control" id="exampleInputPassword1" name="nama" placeholder="Nama Lengkap">
@@ -145,7 +141,7 @@
          <h4 class="modal-title">Edit Data Petugas</h4>
        </div>
        <div class="modal-body">
-         <form role="form" action="<?= base_url() . 'kasir/action_edit' ?>" method="POST">
+         <form role="form" action="<?= base_url() . 'petugas/action_edit' ?>" method="POST">
            <div class="box-body">
              <div class="form-group">
                <label for="exampleInputEmail1">Id Petugas</label>

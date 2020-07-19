@@ -2,6 +2,7 @@
    <!-- Content Header (Page header) -->
    <section class="content-header">
      <h1>
+     Data Pembayaran Per Pelanggan
      </h1>
      <ol class="breadcrumb">
        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -17,7 +18,7 @@
        <div class="box-body">
          <div class="row">
            <div class="col-xs-6">
-             <p class="lead">Data Pembayaran Per Pelanggan</p>
+         
 
              <div class="table-responsive">
                <?php foreach ($pelanggan as $a) { ?>

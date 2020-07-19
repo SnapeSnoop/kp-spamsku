@@ -17,7 +17,6 @@ class Petugas extends MY_Controller {
 
 	function action_tambah(){
 		$data = array(
-			'idptgs' => $this->input->post('idptgs'),
 			'nama_petugas' => $this->input->post('nama'),
 			'tempat_lahir' => $this->input->post('tempat'),
 			'tanggal_lahir' => $this->input->post('tgl_lahir'),
@@ -25,7 +24,6 @@ class Petugas extends MY_Controller {
 			'alamat' => $this->input->post('alamat'),
 			'nohp' => $this->input->post('nohp'),
 			'email' => $this->input->post('email'),
-			'username' => $this->input->post('username'),
 			'root' => '2'
 		);
 
@@ -44,7 +42,6 @@ class Petugas extends MY_Controller {
 			'alamat' => $this->input->post('alamat'),
 			'nohp' => $this->input->post('nohp'),
 			'email' => $this->input->post('email'),
-			'username' => $this->input->post('username'),
 		);
 
 		$where = array('idptgs' => $id);
