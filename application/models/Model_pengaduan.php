@@ -13,6 +13,7 @@ class Model_pengaduan extends CI_Model
 
 	function tambah($data)
 	{
+
 		require APPPATH . 'views/vendor/autoload.php';
 		$options = array(
 			'cluster' => 'ap1',
@@ -34,8 +35,6 @@ class Model_pengaduan extends CI_Model
 		} else {
 			return false;
 		}
-
-		
 	}
 
 	function edit($data, $where)

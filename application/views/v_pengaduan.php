@@ -24,6 +24,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>No Pelanggan</th>
                             <th>Nama</th>
                             <th>Alamat</th>
                             <th>Tanggal</th>
@@ -39,6 +40,7 @@
                         ?>
                             <tr>
                                 <td><?= $no++; ?></td>
+                                <td><?= $data->no_pelanggan ?></td>
                                 <td><?= $data->nama ?></td>
                                 <td><?= $data->alamat ?></td>
                                 <td><?= $data->tanggal ?></td>
@@ -47,6 +49,7 @@
                                 <td>
                                     <a style="cursor: pointer;" onclick="select_data(
                                         '<?= $data->id ?>',
+                                        '<?= $data->no_pelanggan ?>',
                                         '<?= $data->nama ?>',
                                         '<?= $data->alamat ?>',
                                         '<?= $data->tanggal ?>',
@@ -76,6 +79,10 @@
             <div class="modal-body">
                 <form role="form" action="<?= base_url() . 'pengaduan/action_tambah' ?>" method="POST">
                     <div class="box-body">
+                    <div class="form-group">
+                            <label for="exampleInputPassword1">No Pelanggan</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" name="no_pelanggan" placeholder="No Pelanggan">
+                        </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Nama</label>
                             <input type="text" class="form-control" id="exampleInputPassword1" name="nama" placeholder="Nama Lengkap">
@@ -126,6 +133,10 @@
             <div class="modal-body">
                 <form role="form" action="<?= base_url() . 'pengaduan/action_edit' ?>" method="POST">
                     <div class="box-body">
+                    <div class="form-group">
+                            <label for="exampleInputPassword1">No Pelanggan</label>
+                            <input type="text" class="form-control" id="no_pelanggan" name="no_pelanggan" placeholder="No Pelanggan" readonly>
+                        </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Nama</label>
                             <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Lengkap">
@@ -165,8 +176,9 @@
 </div>
 
 <script type="text/javascript">
-    function select_data($id, $nama, $alamat, $tanggal, $keluhan, $status) {
+    function select_data($id, $no_pelanggan, $nama, $alamat, $tanggal, $keluhan, $status) {
         $("#id").val($id);
+        $("#no_pelanggan").val($no_pelanggan);
         $("#nama").val($nama);
         $("#alamat").val($alamat);
         $("#tanggal").val($tanggal);

@@ -20,12 +20,17 @@ class Pengaduan extends MY_Controller
 
 	function action_tambah()
 	{
+
+	
 		$data = array(
+			'no_pelanggan' => $this->input->post('no_pelanggan'),
 			'nama' => $this->input->post('nama'),
 			'alamat' => $this->input->post('alamat'),
 			'tanggal' => $this->input->post('tanggal'),
 			'keluhan' => $this->input->post('keluhan'),
 			'status' => $this->input->post('status'),
+			'status_no' => '2',
+			'imageurl' => 'http://192.168.43.51/kp-spamsku/image/ic_status/ic_waiting.png',
 			'root' => '3'
 		);
 
@@ -41,7 +46,7 @@ class Pengaduan extends MY_Controller
 			$options
 		);
 
-		$nf['message'] = 'hello world';
+		$nf['message'] = 'sukses';
 		$pusher->trigger('my-channel', 'my-event', $nf);
 
 		$this->m_pengaduan->tambah($data);
