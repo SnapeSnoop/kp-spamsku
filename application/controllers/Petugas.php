@@ -24,6 +24,7 @@ class Petugas extends MY_Controller {
 			'alamat' => $this->input->post('alamat'),
 			'nohp' => $this->input->post('nohp'),
 			'email' => $this->input->post('email'),
+			'password' => $this->input->post('password'),
 			'root' => '2'
 		);
 
@@ -35,7 +36,7 @@ class Petugas extends MY_Controller {
 		$id = $this->input->post('idptgs');
 		$data = array(
 			'idptgs' => $id,
-			'nama_petugas' => $this->input->post('nama'),
+			'nama_petugas' => $this->input->post('nama_petugas'),
 			'tempat_lahir' => $this->input->post('tempat'),
 			'tanggal_lahir' => $this->input->post('tgl_lahir'),
 			'jk' => $this->input->post('jk'),

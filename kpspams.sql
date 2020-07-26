@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2020 at 07:19 AM
+-- Generation Time: Jul 20, 2020 at 09:18 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
@@ -75,7 +75,8 @@ CREATE TABLE `tb_admin` (
 --
 
 INSERT INTO `tb_admin` (`idadmin`, `nama_lengkap`, `username`, `password`, `root`) VALUES
-(1, 'Eka Mahendra BagasKara', 'admin', 'admin', 1);
+(1, 'Eka Mahendra BagasKara', 'admin', 'admin', 1),
+(2, 'Anang Basuki', 'mbahmeru', 'deafaith2020', 1);
 
 -- --------------------------------------------------------
 
@@ -122,8 +123,9 @@ CREATE TABLE `tb_konfirmasi` (
 --
 
 INSERT INTO `tb_konfirmasi` (`id`, `id_pelanggan`, `kode_bayar`, `nominal`, `tanggal_transaksi`, `bukti_tf`, `status`) VALUES
-(12, '14060002', 'PA2007071149', 45000, '2020-07-17', '5bcedab2eb0e4b8564732dc9e3901804.jpg', 1),
-(18, '14060001', 'PA2007071143', 36000, '2020-07-18', '1595041753269.jpg', 1);
+(23, '14060003', 'PA2007071820', 53000, '2020-07-18', '1595059498130.jpg', 1),
+(24, '14060004', 'PA2007071852', 53000, '2020-07-18', '1595060680474.jpg', 1),
+(25, '14060001', 'PA2007072097', 16500, '2020-07-20', '1595228039131.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -319,9 +321,9 @@ CREATE TABLE `tb_pembayaran` (
 --
 
 INSERT INTO `tb_pembayaran` (`kode_bayar`, `no_pelanggan`, `bulan_bayar`, `jumlah_bayar`, `gol1_bayar`, `gol2_bayar`, `gol3_bayar`, `total_bayar`, `tanggal_bayar`, `status_bayar`) VALUES
-('PA2007071143', '14060001', '2020-06-25', 0, 5000, 26000, 0, 36000, '2020-07-11', 'Belum Lunas'),
-('PA2007071149', '14060002', '2020-06-25', 45000, 3000, 12000, 25000, 45000, '2020-07-11', 'Lunas'),
-('PA2007071779', '14060092', '17-07-2020', 0, 5000, 26000, 59500, 95500, '2020-07-17', 'Belum Lunas');
+('PA2007071926', '14060092', '2020-07-25', 0, 5000, 26000, 0, 36000, '2020-07-19', 'Belum Lunas'),
+('PA2007072095', '14060003', '2020-07-25', 0, 5000, 26000, 17000, 53000, '2020-07-20', 'Belum Lunas'),
+('PA2007072097', '14060001', '2020-06-25', 16500, 5000, 6500, 0, 16500, '2020-07-20', 'Lunas');
 
 -- --------------------------------------------------------
 
@@ -347,8 +349,8 @@ CREATE TABLE `tb_pengaduan` (
 --
 
 INSERT INTO `tb_pengaduan` (`id`, `no_pelanggan`, `nama`, `alamat`, `tanggal`, `keluhan`, `status`, `root`, `status_no`, `imageurl`) VALUES
-(17, '14060001', 'P SUGIONO', 'lmj', '2020-07-18', 'bocor', 'Menunggu', 3, '2', 'http://192.168.43.51/kp-spamsku/image/ic_waiting.p'),
-(18, '14060002', 'SDN PRONOJIWO 01', 'lapangan', '2020-07-18', 'mati air e', 'Sedang Dik', 3, '1', 'http://192.168.43.51/kp-spamsku/image/ic_status/ic_onworking.png');
+(21, '14060001', 'P SUGIONO', 'gondanglegi', '2020-07-19', 'mati kran e', 'Menunggu', 3, '2', 'http://192.168.43.51/kp-spamsku/image/ic_status/ic_waiting.png'),
+(22, '14060002', 'SDN Pronojiwo 1', 'Lapangan', '2020-07-22', 'meteran mati', 'menunggu', 3, '2', 'http://192.168.43.51/kp-spamsku/image/ic_status/ic_waiting.png');
 
 -- --------------------------------------------------------
 
@@ -374,7 +376,7 @@ CREATE TABLE `tb_petugas` (
 --
 
 INSERT INTO `tb_petugas` (`idptgs`, `nama_petugas`, `tempat_lahir`, `tanggal_lahir`, `jk`, `alamat`, `nohp`, `email`, `password`, `root`) VALUES
-(1, 'Farhan Affandi', 'Malang', '2020-04-22', 'Laki-laki', 'Akordion', '081332458098', 'ndip@gmail.com', '12345678', 2);
+(6, 'Farhan Affandi', 'Malang', '1995-07-19', 'Laki-laki', 'Tunggul', '081332458098', 'ndip@gmail.com', '12345678', 2);
 
 -- --------------------------------------------------------
 
@@ -405,11 +407,7 @@ CREATE TABLE `tb_tarif` (
 --
 
 INSERT INTO `tb_tarif` (`id_tarif`, `no_pelanggan`, `idgolongan`, `bulan_rekening`, `mawal`, `makhir`, `gol1`, `gol2`, `gol3`, `pemakaian`, `denda`, `total_bayar`, `input_oleh`, `tanggal_data`, `status`) VALUES
-(46, '14060001', 1, '2020-06-25', '0', '50', '10', '40', '0', '50', '', '55000', 1, '2020-07-11', 'Belum Lunas'),
-(47, '14060001', 1, '2020-07-25', '50', '120', '10', '40', '20', '70', '', '75000', 1, '2020-07-11', 'Belum bayar'),
-(48, '14060002', 2, '2020-06-25', '0', '100', '10', '40', '50', '100', '', '55000', 1, '2020-07-11', 'Belum Lunas'),
-(49, '14060002', 2, '2020-07-25', '100', '120', '10', '10', '0', '20', '', '15000', 1, '2020-07-11', 'Belum bayar'),
-(50, '14060092', 1, '17-07-2020', '0', '120\n', '10', '40', '70', '120', '', '0', 0, '2020-07-17', 'Belum Lunas');
+(61, '14060001', 1, '2020-06-25', '545', '565', '10', '10', '0', '20', '', '25000', 1, '2020-07-20', 'Belum Lunas');
 
 -- --------------------------------------------------------
 
@@ -431,9 +429,7 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id`, `nama`, `notlp`, `email`, `password`, `root`) VALUES
-(1, 'bagas', '08123123112', 'bagas@gmail.com', '1231237132', '3'),
-(2, 'bagaskara', '081332458098', 'kazuhikokazuto48@gmail.com', '12345678', '3'),
-(3, 'Midoriya Izuku', '08979321456', 'midoriya@gmail.com', 'test123', '3');
+(4, 'bagas', '081332458098', 'bagas@gmail.com', '12345678', '3');
 
 --
 -- Indexes for dumped tables
@@ -513,7 +509,7 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT for table `tb_admin`
 --
 ALTER TABLE `tb_admin`
-  MODIFY `idadmin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idadmin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_golongan`
@@ -525,31 +521,31 @@ ALTER TABLE `tb_golongan`
 -- AUTO_INCREMENT for table `tb_konfirmasi`
 --
 ALTER TABLE `tb_konfirmasi`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `tb_pengaduan`
 --
 ALTER TABLE `tb_pengaduan`
-  MODIFY `id` int(40) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(40) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `tb_petugas`
 --
 ALTER TABLE `tb_petugas`
-  MODIFY `idptgs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idptgs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tb_tarif`
 --
 ALTER TABLE `tb_tarif`
-  MODIFY `id_tarif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id_tarif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
